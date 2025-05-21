@@ -4,6 +4,10 @@ import { FaUserTie, FaSearch, FaMoneyCheckAlt, FaBalanceScale, FaChalkboardTeach
 import { MdWorkOutline, MdGroups, MdBusinessCenter } from 'react-icons/md';
 import { GiDiscussion } from 'react-icons/gi';
 import Line from "@/components/Line/Line";
+import Navbar  from "@/components/Navbar/Navbar";
+import Header from "@/components/Header/Header";  
+
+
 export default function Home() {
 
 
@@ -66,7 +70,8 @@ export default function Home() {
   ]
   return (
     <main>
-
+            <Navbar />
+        <Header />
 
 
       <section id="#service" className="px-1 md:px-24 lg:px-36 my-8">
@@ -86,6 +91,8 @@ export default function Home() {
 
 
 
-    </main>
+    
+      
+      </main>
   );
 }
