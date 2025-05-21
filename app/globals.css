@@ -4,5 +4,21 @@
 
 
 body {
-  font-family:  var(--font-poppins),  sans-serif;
+  font-family: var(--font-poppins), sans-serif;
+}
+
+@keyframes move {
+
+  0% {
+    left: 0%;
+  }
+
+  100% {
+    left: 100%;
+  }
+
+}
+
+.animate-move {
+  animation: move 4s linear infinite;
 }
