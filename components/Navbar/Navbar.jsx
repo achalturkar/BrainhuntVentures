@@ -84,18 +84,13 @@ const Navbar = () => {
 
             {/* Mobile Drawer */}
             <div
-                className={`lg:hidden fixed top-0 right-0 w-3/4 max-w-sm min-h-screen bg-white text-black p-4 transform transition-transform duration-300 z-40 shadow-lg ${menuOpen ? "translate-x-0" : "translate-x-full"
+                className={`lg:hidden fixed top-0 right-0 w-full  bg-white text-black p-4 transform transition-transform duration-300 z-40 shadow-lg ${menuOpen ? "translate-y-0" : "-translate-y-full"
                     }`}
-                style={{
-                    backgroundImage: "url('/blob.svg')",
-                    backgroundRepeat: "no-repeat",
-                    backgroundSize: "cover",
-                }}
             >
-                <div className="flex justify-between items-center mb-6">
+                {/* <div className="flex justify-between items-center mb-6">
                     <Image src="/brainhunt-PNG.png" width={100} height={100} alt="Logo" />
-                </div>
-                <ul className="flex flex-col gap-6 text-lg font-semibold">
+                </div> */}
+                <ul className="my-16 flex flex-col gap-6 text-lg font-semibold">
                     <li>
                         <Link href="/" onClick={() => setMenuOpen(false)}>
                             HOME
