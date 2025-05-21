@@ -1,5 +1,7 @@
 import {  Poppins } from "next/font/google";
 import "./globals.css";
+import TopUpButton from "@/components/TopUpButton/TopUpButton";
+import Whatsapp from "@/components/Whatsapp/Whatsapp";
 
 
 const poppins = Poppins({
@@ -20,7 +22,10 @@ export default function RootLayout({ children }) {
       <body
         className={`${poppins.variable}  antialiased`}
       >
+        
         {children}
+        <TopUpButton />
+        <Whatsapp />
       </body>
     </html>
   );

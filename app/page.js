@@ -74,7 +74,7 @@ export default function Home() {
         <Header />
 
 
-      <section id="#service" className="px-1 md:px-24 lg:px-36 my-8">
+      <section id="services" className="px-1 md:px-24 lg:px-36 my-8">
 
         <h1 className="text-3xl font-extrabold my-1 text-center">Our Services</h1>
         <Line />
