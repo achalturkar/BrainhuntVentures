@@ -4,9 +4,11 @@ import { useEffect, useState } from "react";
 import { FiMenu, FiX } from "react-icons/fi";
 import Image from "next/image";
 import Link from "next/link";
+import { FaChevronDown } from "react-icons/fa";
 
 const Navbar = () => {
     const [menuOpen, setMenuOpen] = useState(false);
+    const [servicesOpen, setServicesOpen] = useState(false);
     const [scrolled, setScrolled] = useState(false);
 
     useEffect(() => {
@@ -22,8 +24,8 @@ const Navbar = () => {
             {/* Fixed Navbar */}
             <nav
                 className={`fixed top-0 left-0 w-full z-50 transition-all duration-300 ${scrolled
-                        ? "bg-white shadow-md backdrop-blur fixed top-0"
-                        : "bg-transparent"
+                    ? "bg-white shadow-md backdrop-blur"
+                    : "bg-transparent"
                     } text-black flex items-center justify-between px-4 py-2 lg:justify-around`}
             >
                 {/* Logo */}
@@ -31,51 +33,51 @@ const Navbar = () => {
                     <Image src="/brainhunt-PNG.png" width={120} height={120} alt="Logo" />
                 </Link>
 
-                {/* Desktop Nav Links */}
+                {/* Desktop Nav */}
                 <ul className="hidden lg:flex items-center gap-6 font-semibold">
                     <li>
-                        <Link href="/" className="text-[#0A55A0] hover:text-blue-600">
-                            HOME
-                        </Link>
+                        <Link href="/" className="text-[#0A55A0] hover:text-blue-600">HOME</Link>
                     </li>
                     <li>
-                        <Link
-                            href="#aboutus"
-                            className="text-[#0A55A0] hover:text-blue-600"
-                        >
-                            ABOUT US
-                        </Link>
+                        <Link href="/aboutus" className="text-[#0A55A0] hover:text-blue-600">ABOUT US</Link>
+                    </li>
+                    <li className="relative group cursor-pointer">
+                        <div className="flex items-center gap-1 text-[#0A55A0] hover:text-blue-900">
+                            SERVICES <FaChevronDown size={12} />
+                        </div>
+                        <ul className="absolute top-6 left-0 bg-gray-200/20 shadow-md rounded-md text-md w-64 hidden group-hover:block z-10">
+                            <li className="p-2 hover:bg-gray-100 hover:text-blue-900 rounded-md">
+                                <Link href="/services/headhunting">Recruitment</Link>
+                            </li>
+                            <li className="p-2 hover:bg-gray-100 hover:text-blue-900 rounded-md">
+                                <Link href="/services/contractualrecruitment">Payroll Solutions / Payroll Outsourcing</Link>
+                            </li>
+                            <li className="p-2 hover:bg-gray-100 hover:text-blue-900 rounded-md">
+                                <Link href="/services/payrollmanagement">HR Consulting</Link>
+                            </li>
+                            <li className="p-2 hover:bg-gray-100 hover:text-blue-900 rounded-md">
+                                <Link href="/services/permanentrecruitment">Flexi Staffing Solutions</Link>
+                            </li>
+                            <li className="p-2 hover:bg-gray-100 hover:text-blue-900 rounded-md">
+                                <Link href="/services/permanentrecruitment">Labour Law Compliance / Statutory Compliances</Link>
+                            </li>
+                            <li className="p-2 hover:bg-gray-100 hover:text-blue-900 rounded-md">
+                                <Link href="/services/permanentrecruitment">Training and Development</Link>
+                            </li>
+                        </ul>
                     </li>
                     <li>
-                        <Link
-                            href="#services"
-                            className="text-[#0A55A0] hover:text-blue-600"
-                        >
-                            SERVICES
-                        </Link>
+                        <Link href="/howwework" className="text-[#0A55A0] hover:text-blue-600">HOW WE WORK</Link>
                     </li>
                     <li>
-                        <Link
-                            href="#howwework"
-                            className="text-[#0A55A0] hover:text-blue-600"
-                        >
-                            HOW WE WORK
-                        </Link>
-                    </li>
-                    <li>
-                        <Link
-                            href="#contact"
-                            className="text-[#0A55A0] hover:text-blue-600"
-                        >
-                            CONTACT
-                        </Link>
+                        <Link href="/contact" className="text-[#0A55A0] hover:text-blue-600">CONTACT</Link>
                     </li>
                 </ul>
 
                 {/* Mobile Menu Toggle */}
                 <button
                     className="lg:hidden text-3xl z-50"
-                    onClick={() => setMenuOpen((prev) => !prev)}
+                    onClick={() => setMenuOpen(prev => !prev)}
                     aria-label="Toggle Menu"
                 >
                     {menuOpen ? <FiX /> : <FiMenu />}
@@ -84,37 +86,47 @@ const Navbar = () => {
 
             {/* Mobile Drawer */}
             <div
-                className={`lg:hidden fixed top-0 right-0 w-full  bg-white text-black p-4 transform transition-transform duration-300 z-40 shadow-lg ${menuOpen ? "translate-y-0" : "-translate-y-full"
-                    }`}
+                className={`lg:hidden fixed top-0 right-0 w-full bg-white text-black p-4 transform transition-transform duration-300 z-40 shadow-lg ${menuOpen ? "translate-y-0" : "-translate-y-full"}`}
             >
-                {/* <div className="flex justify-between items-center mb-6">
-                    <Image src="/brainhunt-PNG.png" width={100} height={100} alt="Logo" />
-                </div> */}
-                <ul className="my-16 flex flex-col gap-6 text-lg font-semibold">
+                <ul className="mt-20 flex flex-col gap-6 text-lg font-semibold">
                     <li>
-                        <Link href="/" onClick={() => setMenuOpen(false)}>
-                            HOME
-                        </Link>
+                        <Link href="/" onClick={() => setMenuOpen(false)}>HOME</Link>
                     </li>
                     <li>
-                        <Link href="#aboutus" onClick={() => setMenuOpen(false)}>
-                            ABOUT US
-                        </Link>
+                        <Link href="/aboutus" onClick={() => setMenuOpen(false)}>ABOUT US</Link>
+                    </li>
+                    <li className="cursor-pointer" onClick={() => setServicesOpen(!servicesOpen)}>
+                        <div className="flex justify-between items-center">
+                            SERVICES <FaChevronDown size={12} />
+                        </div>
+                        {servicesOpen && (
+                            <ul className="pl-4 text-md mt-2">
+                                <li className="p-2 hover:bg-gray-100 hover:text-blue-900">
+                                    <Link href="/services/headhunting" onClick={() => setMenuOpen(false)}>Recruitment</Link>
+                                </li>
+                                <li className="p-2 hover:bg-gray-100 hover:text-blue-900">
+                                    <Link href="/services/contractualrecruitment" onClick={() => setMenuOpen(false)}>Payroll Solutions / Payroll Outsourcing</Link>
+                                </li>
+                                <li className="p-2 hover:bg-gray-100 hover:text-blue-900">
+                                    <Link href="/services/payrollmanagement" onClick={() => setMenuOpen(false)}>HR Consulting</Link>
+                                </li>
+                                <li className="p-2 hover:bg-gray-100 hover:text-blue-900">
+                                    <Link href="/services/permanentrecruitment" onClick={() => setMenuOpen(false)}>Flexi Staffing Solutions</Link>
+                                </li>
+                                <li className="p-2 hover:bg-gray-100 hover:text-blue-900">
+                                    <Link href="/services/permanentrecruitment" onClick={() => setMenuOpen(false)}>Labour Law Compliance / Statutory Compliances</Link>
+                                </li>
+                                <li className="p-2 hover:bg-gray-100 hover:text-blue-900">
+                                    <Link href="/services/permanentrecruitment" onClick={() => setMenuOpen(false)}>Training and Development</Link>
+                                </li>
+                            </ul>
+                        )}
                     </li>
                     <li>
-                        <Link href="#services" onClick={() => setMenuOpen(false)}>
-                            SERVICES
-                        </Link>
+                        <Link href="/howwework" onClick={() => setMenuOpen(false)}>HOW WE WORK</Link>
                     </li>
                     <li>
-                        <Link href="#howwework" onClick={() => setMenuOpen(false)}>
-                            HOW WE WORK
-                        </Link>
-                    </li>
-                    <li>
-                        <Link href="#contact" onClick={() => setMenuOpen(false)}>
-                            CONTACT
-                        </Link>
+                        <Link href="/contact" onClick={() => setMenuOpen(false)}>CONTACT</Link>
                     </li>
                 </ul>
             </div>
