@@ -4,8 +4,9 @@ import { FaUserTie, FaSearch, FaMoneyCheckAlt, FaBalanceScale, FaChalkboardTeach
 import { MdWorkOutline, MdGroups, MdBusinessCenter } from 'react-icons/md';
 import { GiDiscussion } from 'react-icons/gi';
 import Line from "@/components/Line/Line";
-import Navbar  from "@/components/Navbar/Navbar";
-import Header from "@/components/Header/Header";  
+import Navbar from "@/components/Navbar/Navbar";
+import Header from "@/components/Header/Header";
+import TestimonialSlider from "@/components/Testimonial/TestimonialSlider";
 
 
 export default function Home() {
@@ -70,11 +71,11 @@ export default function Home() {
   ]
   return (
     <main>
-            <Navbar />
-        <Header />
+      <Navbar />
+      <Header />
 
 
-      <section id="services" className="px-1 md:px-24 lg:px-36 my-8">
+      <section  className="px-1 md:px-24 lg:px-36 my-8">
 
         <h1 className="text-3xl font-extrabold my-1 text-center">Our Services</h1>
         <Line />
@@ -82,17 +83,17 @@ export default function Home() {
           From recruitment to compliance, we help you build a strong and future-ready organization.
 
         </p>
-        
+
         <Service Services={service} />
 
 
       </section>
 
 
+      <section>
+        <TestimonialSlider />
+      </section>
 
-
-    
-      
-      </main>
+    </main>
   );
 }

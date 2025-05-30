@@ -2,7 +2,7 @@ import {  Poppins } from "next/font/google";
 import "./globals.css";
 import TopUpButton from "@/components/TopUpButton/TopUpButton";
 import Whatsapp from "@/components/Whatsapp/Whatsapp";
-
+import Navbar from "@/components/Navbar/Navbar";
 
 const poppins = Poppins({
   subsets: ['latin'],
@@ -22,7 +22,7 @@ export default function RootLayout({ children }) {
       <body
         className={`${poppins.variable}  antialiased`}
       >
-        
+        <Navbar />
         {children}
         <TopUpButton />
         <Whatsapp />

@@ -1,7 +1,7 @@
 import Link from "next/link";
 
 
-const ContactButton = () =>{
+const CTA = () =>{
 
 
     return(
@@ -20,4 +20,4 @@ const ContactButton = () =>{
     )
 }
 
-export default ContactButton;
+export default CTA;

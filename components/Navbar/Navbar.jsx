@@ -45,7 +45,7 @@ const Navbar = () => {
                         <div className="flex items-center gap-1 text-[#0A55A0] hover:text-blue-900">
                             SERVICES <FaChevronDown size={12} />
                         </div>
-                        <ul className="absolute top-6 left-0 bg-gray-200/20 shadow-md rounded-md text-md w-64 hidden group-hover:block z-10">
+                        <ul className="absolute top-6 left-0 bg-white shadow-md rounded-md text-md w-64 hidden group-hover:block z-10">
                             <li className="p-2 hover:bg-gray-100 hover:text-blue-900 rounded-md">
                                 <Link href="/services/headhunting">Recruitment</Link>
                             </li>
@@ -70,7 +70,7 @@ const Navbar = () => {
                         <Link href="/howwework" className="text-[#0A55A0] hover:text-blue-600">HOW WE WORK</Link>
                     </li>
                     <li>
-                        <Link href="/contact" className="text-[#0A55A0] hover:text-blue-600">CONTACT</Link>
+                        <Link href="/contact" className="text-[#0A55A0] hover:text-blue-600">CONTACT US</Link>
                     </li>
                 </ul>
 
@@ -100,7 +100,7 @@ const Navbar = () => {
                             SERVICES <FaChevronDown size={12} />
                         </div>
                         {servicesOpen && (
-                            <ul className="pl-4 text-md mt-2">
+                            <ul className="pl-4 text-md mt-2 ">
                                 <li className="p-2 hover:bg-gray-100 hover:text-blue-900">
                                     <Link href="/services/headhunting" onClick={() => setMenuOpen(false)}>Recruitment</Link>
                                 </li>
@@ -126,7 +126,7 @@ const Navbar = () => {
                         <Link href="/howwework" onClick={() => setMenuOpen(false)}>HOW WE WORK</Link>
                     </li>
                     <li>
-                        <Link href="/contact" onClick={() => setMenuOpen(false)}>CONTACT</Link>
+                        <Link href="/contact" onClick={() => setMenuOpen(false)}>CONTACT US</Link>
                     </li>
                 </ul>
             </div>
