@@ -34,18 +34,18 @@ const Navbar = () => {
                 </Link>
 
                 {/* Desktop Nav */}
-                <ul className="hidden lg:flex items-center gap-6 font-semibold">
+                <ul className="hidden lg:flex items-center gap-6  text-sm font-semibold">
                     <li>
                         <Link href="/" className="text-[#0A55A0] hover:text-blue-600">HOME</Link>
                     </li>
                     <li>
-                        <Link href="/aboutus" className="text-[#0A55A0] hover:text-blue-600">ABOUT US</Link>
+                        <Link href="/about" className="text-[#0A55A0] hover:text-blue-600">ABOUT US</Link>
                     </li>
                     <li className="relative group cursor-pointer">
                         <div className="flex items-center gap-1 text-[#0A55A0] hover:text-blue-900">
                             SERVICES <FaChevronDown size={12} />
                         </div>
-                        <ul className="absolute top-6 left-0 bg-white shadow-md rounded-md text-md w-64 hidden group-hover:block z-10">
+                        <ul className="absolute top-6 -left-40 bg-white shadow-md rounded-md text-md w-100 hidden group-hover:block z-10">
                             <li className="p-2 hover:bg-gray-100 hover:text-blue-900 rounded-md">
                                 <Link href="/services/headhunting">Recruitment</Link>
                             </li>
@@ -67,7 +67,7 @@ const Navbar = () => {
                         </ul>
                     </li>
                     <li>
-                        <Link href="/howwework" className="text-[#0A55A0] hover:text-blue-600">HOW WE WORK</Link>
+                        <Link href="/careers" className="text-[#0A55A0] hover:text-blue-600">CAREERS</Link>
                     </li>
                     <li>
                         <Link href="/contact" className="text-[#0A55A0] hover:text-blue-600">CONTACT US</Link>
@@ -93,7 +93,7 @@ const Navbar = () => {
                         <Link href="/" onClick={() => setMenuOpen(false)}>HOME</Link>
                     </li>
                     <li>
-                        <Link href="/aboutus" onClick={() => setMenuOpen(false)}>ABOUT US</Link>
+                        <Link href="/about" onClick={() => setMenuOpen(false)}>ABOUT US</Link>
                     </li>
                     <li className="cursor-pointer" onClick={() => setServicesOpen(!servicesOpen)}>
                         <div className="flex justify-between items-center">
@@ -123,7 +123,7 @@ const Navbar = () => {
                         )}
                     </li>
                     <li>
-                        <Link href="/howwework" onClick={() => setMenuOpen(false)}>HOW WE WORK</Link>
+                        <Link href="/careers" onClick={() => setMenuOpen(false)}>CAREERS</Link>
                     </li>
                     <li>
                         <Link href="/contact" onClick={() => setMenuOpen(false)}>CONTACT US</Link>

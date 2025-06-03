@@ -9,11 +9,7 @@ const Contact= () =>{
 
         <>
 
-        <Head>
-
-
-        </Head>
-
+      
         <main>
 
 
