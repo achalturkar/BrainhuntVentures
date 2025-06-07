@@ -44,8 +44,8 @@ const TopUpButton = () =>{
     return(
        <button
        onClick={handleClick}
-       className={`${showArrowTop ? "fixed bottom-4  right-4 text-black  p-2 bg-blue-300 hover:bg-orange-400 rounded-full hover:-translate-y-1 hover:scale-105 z-50"  : "hidden" }`}>
-             <MdKeyboardDoubleArrowUp className="size-6 "  />
+       className={`${showArrowTop ? "fixed bottom-4  right-4 text-white  p-2 bg-blue-900 hover:bg-blue-950 rounded-full hover:-translate-y-1 hover:scale-105 z-50"  : "hidden" }`}>
+             <MdKeyboardDoubleArrowUp  className="size-6 font-bold"/>
 
        </button>
     )
