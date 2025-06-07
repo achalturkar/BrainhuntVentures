@@ -11,6 +11,7 @@ import IndustryServe from "@/components/IndustryServe/IndustryServe";
 import CTA from "@/components/CTA/CTA";
 import Journey from "@/components/Journey/Journey";
 import About from "@/components/About/about";
+import Client from "@/components/Client/Client";
 
 
 export default function Home() {
@@ -90,6 +91,8 @@ export default function Home() {
       <Journey />
 
       <Service Services={service} />
+
+      <Client />
 
       <TestimonialSlider />
 

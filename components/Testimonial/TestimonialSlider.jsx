@@ -39,10 +39,10 @@ const testimonials = [
 
 export default function TestimonialSlider() {
   return (
-    <section className=" py-12 px-4  text-center">
+    <section className=" py-10 md:py-20 px-4  text-center">
       <div className="text-center mb-6">
         <h2 className="text-3xl md:text-4xl font-bold text-black mb-2">
-          What client say about us        </h2>
+          What Client say About Us        </h2>
           <Line/>
         <p className="text-gray-600 text-base md:text-lg max-w-4xl mx-auto">
           We serve a wide range of industries with customized recruitment and staffing solutions that align the right talent with business needs
