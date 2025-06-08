@@ -1,4 +1,4 @@
-"use client";
+"use client"
 
 import { useEffect, useState } from "react";
 import { FiMenu, FiX } from "react-icons/fi";
@@ -98,11 +98,11 @@ const Navbar = () => {
 
       {/* Mobile Menu */}
       <div
-        className={`lg:hidden fixed top-0 right-0 w-full bg-white text-black p-4 transform transition-transform duration-300 z-40 shadow-lg ${
+        className={`lg:hidden fixed top-0 right-0 w-full bg-[url('/mvb.webp')] bg-cover bg-repeat-no text-black px-4 py-1 transform transition-transform duration-300 z-40 shadow-lg ${
           menuOpen ? "translate-y-0" : "-translate-y-full"
         }`}
       >
-        <ul className="mt-20 flex flex-col gap-6 text-lg font-medium">
+        <ul className="mt-20 flex flex-col gap-2 text-lg font-medium">
           <li><Link href="/" onClick={() => setMenuOpen(false)}>Home</Link></li>
           <li><Link href="/about" onClick={() => setMenuOpen(false)}>About Us</Link></li>
 
@@ -136,7 +136,7 @@ const Navbar = () => {
         </ul>
 
         <div className="text-center p-2 mt-6 rounded-full bg-blue-900 text-white font-medium px-4">
-          Brochure
+          Download Brochure
         </div>
       </div>
     </>

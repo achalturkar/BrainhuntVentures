@@ -2,7 +2,7 @@ import Link from "next/link";
 
 const Header = () => {
     return (
-        <div className="bg-[url('/bh.webp')] bg-cover bg-no-repeat bg-left md:bg-right lg:bg-center min-h-screen flex items-center px-6 sm:px-10 lg:px-20">
+        <div className="bg-[url('/bh.webp')] bg-cover bg-no-repeat bg-center  lg:bg-center min-h-screen flex items-center px-6 sm:px-10 lg:px-20">
             <div className="w-full md:w-1/2 text-center md:text-left space-y-4">
                 <h1 className="text-3xl sm:text-4xl lg:text-5xl font-extrabold text-white leading-tight">
                     Your Strategic Partner for HR, Staffing & Compliance
