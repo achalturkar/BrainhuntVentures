@@ -84,20 +84,12 @@ export default function Home() {
     <main>
       <Navbar />
       <Header />
-
-
-      <About/>
-
-      <Journey />
-
+      <About />
       <Service Services={service} />
-
-      <Client />
-
-      <TestimonialSlider />
-
       <IndustryServe />
-
+      <Journey />
+      <Client />
+      <TestimonialSlider />
       <CTA />
 
 

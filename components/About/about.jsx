@@ -4,7 +4,7 @@ import Line from "../Line/Line";
 const About = () => {
 
     return (
-        <section className=" bg-blue-100  py-10 md:py-20 ">
+        <section className=" bg-blue-50  py-10 md:py-12 ">
             <div className="flex  flex-col md:flex-row justify-center items-center gap-4 px-2 md:px-10 lg:px-20  lg:mx-40 ">
                 <div className="w-full md:w-1/2 flex justify-center items-center md:items-left">
                     <Image
@@ -19,14 +19,13 @@ const About = () => {
                 </div>
 
 
-                <div className="w-full md:w-1/2 flex flex-col justify-center items-center">
+                <div className="w-full md:w-1/2 flex flex-col justify-center items-center p-2">
 
-                    <h2 className="text-2xl md:text-3xl text-black font-bold text-center">
-                        Who are we?
+                    <h2 className="text-2xl md:text-4xl text-black font-bold text-left">
+                        Who Are We?
 
                     </h2>
                     <br />
-                    {/* <Line/> */}
 
                     <p className="text-gray-600 text-md ">
                         Established in 2003 in Nagpur, Brainhunt is a premier HR services organization and one of Central India’s most trusted names in human resource solutions. With a strong foundation built on deep industry knowledge and HR expertise, we have consistently delivered exceptional value to our clients across sectors.

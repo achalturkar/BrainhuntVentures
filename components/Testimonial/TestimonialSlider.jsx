@@ -39,46 +39,41 @@ const testimonials = [
 
 export default function TestimonialSlider() {
   return (
-    <section className=" py-10 md:py-20 px-4  text-center">
-      <div className="text-center mb-6">
-        <h2 className="text-3xl md:text-4xl font-bold text-black mb-2">
-          What Client say About Us        </h2>
-          <Line/>
-        <p className="text-gray-600 text-base md:text-lg max-w-4xl mx-auto">
-          We serve a wide range of industries with customized recruitment and staffing solutions that align the right talent with business needs
-        </p>
-      </div>
-      
+ <section className="py-10 md:py-12 px-4 text-center bg-[url('/bgm.webp')] bg-cover bg-center bg-no-repeat relative z-10">
+  <div className="relative z-20">
+    <div className="text-center mb-6">
+      <h2 className="text-3xl md:text-4xl font-bold text-black mb-2">
+        What Client say About Us
+      </h2>
+      <Line />
+      <p className="text-gray-600 text-base md:text-lg max-w-4xl mx-auto">
+        We serve a wide range of industries with customized recruitment and staffing solutions that align the right talent with business needs
+      </p>
+    </div>
 
-      <Swiper
-        modules={[Navigation, Pagination, Autoplay]}
-        spaceBetween={30}
-        // slidesPerView={1}
-        // navigation
-        pagination={{ clickable: true }}
-        autoplay={{ delay: 4000 }}
-        loop
+    <Swiper
+      modules={[Navigation, Pagination, Autoplay]}
+      spaceBetween={30}
+      pagination={{ clickable: true }}
+      autoplay={{ delay: 4000 }}
+      loop
       breakpoints={{
-        0: {
-          slidesPerView: 1, // for mobile screens
-        },
-        768: {
-          slidesPerView: 1, 
-        },
+        0: { slidesPerView: 1 },
+        768: { slidesPerView: 1 },
       }}
-      >
-        {testimonials.map((t, index) => (
-          <SwiperSlide key={index}>
-            {/* <div className="bg-blue-300 p-6 rounded-xl max-w-xl"> */}
-              <div className="bg-blue-100 max-w-xl mx-auto p-8 rounded-xl shadow-lg mt-2">
-                <p className="italic text-gray-700 mb-4">"{t.comment}"</p>
-                <h4 className="font-bold text-blue-800">{t.name}</h4>
-                <span className="text-sm text-gray-500">{t.profession}</span>
-              </div>
-            {/* </div> */}
-          </SwiperSlide>
-        ))}
-      </Swiper>
-    </section>
+    >
+      {testimonials.map((t, index) => (
+        <SwiperSlide key={index}>
+          <div className="bg-white bg-opacity-90 max-w-xl mx-auto p-8 rounded-xl shadow-lg mt-2">
+            <p className="italic text-gray-700 mb-4">"{t.comment}"</p>
+            <h4 className="font-semibold text-blue-800">{t.name}</h4>
+            <span className="text-sm text-gray-500">{t.profession}</span>
+          </div>
+        </SwiperSlide>
+      ))}
+    </Swiper>
+  </div>
+</section>
+
   );
 }

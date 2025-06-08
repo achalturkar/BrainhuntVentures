@@ -25,7 +25,7 @@ const industryIcon = [
 
 const IndustryServe = () => {
   return (
-    <section className="py-10 px-2 md:px-10 lg:px-20">
+    <section className="py-10 px-2 md:px-10 lg:px-12">
       <div className="text-center mb-6">
         <h2 className="text-3xl md:text-4xl font-bold text-black mb-2">
           Industries We Serve

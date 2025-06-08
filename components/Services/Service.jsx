@@ -3,7 +3,7 @@ import Link from "next/link";
 
 const Service = ({ Services }) => {
     return (
-        <section className="py-16 px-4 bg-gray-50">
+        <section className="py-10 md:py-12 px-4 bg-gray-50">
             <div className="text-center mb-12">
                 <h2 className="text-3xl md:text-4xl font-bold text-black mb-4 tracking-tight">
                     Services We Provide

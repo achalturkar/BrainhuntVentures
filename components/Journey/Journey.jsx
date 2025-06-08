@@ -14,7 +14,7 @@ const Journey = () => {
     ];
 
     return (
-        <section className="py-10 md:py-20 flex flex-col ">
+        <section className="py-10 md:py-12 flex flex-col ">
             <div className="text-center mb-4">
                 <h2 className="text-3xl md:text-4xl font-bold text-black mb-2">
                     Key Highlights of Our Journey
