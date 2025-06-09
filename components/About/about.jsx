@@ -1,48 +1,46 @@
 import Image from "next/image";
 import Line from "../Line/Line";
+import { IoMdCheckmarkCircle } from "react-icons/io";
 
-const About = () => {
 
+const About = ({ img, head, desc, desc1, points }) => {
     return (
-        <section className=" bg-blue-50  py-10 md:py-12 ">
-            <div className="flex  flex-col md:flex-row justify-center items-center gap-4 px-2 md:px-10 lg:px-20  lg:mx-40 ">
-                <div className="w-full md:w-1/2 flex justify-center items-center md:items-left">
+        <section className="bg-blue-50 py-10 md:py-12">
+            <div className="flex flex-col md:flex-row justify-center items-center gap-8 px-4 md:px-10 lg:px-16 max-w-7xl mx-auto">
+
+                {/* Left Image */}
+                <div className="w-full md:w-1/2 flex justify-center md:justify-right">
                     <Image
-                        src="/abt.webp"
-                        alt="about"
+                        src={img}
+                        alt={head}
                         width={400}
                         height={400}
-                        className="rounded-xl"
+                        className="rounded-xl object-cover"
                     />
-
-
                 </div>
 
-
-                <div className="w-full md:w-1/2 flex flex-col justify-center items-center p-2">
-
-                    <h2 className="text-2xl md:text-4xl text-black font-bold text-left">
-                        Who Are We?
-
+                {/* Right Content */}
+                <div className="w-full md:w-1/2 flex flex-col justify-start text-left">
+                    <h2 className="text-2xl md:text-4xl text-black font-bold mb-2">
+                        {head}
                     </h2>
-                    <br />
+                    {/* <Line className="mb-4" /> */}
+                    <p className="text-gray-700 text-md mb-3">{desc}</p>
+                    <p className="text-gray-700 text-md mb-4">{desc1}</p>
 
-                    <p className="text-gray-600 text-md ">
-                        Established in 2003 in Nagpur, Brainhunt is a premier HR services organization and one of Central India’s most trusted names in human resource solutions. With a strong foundation built on deep industry knowledge and HR expertise, we have consistently delivered exceptional value to our clients across sectors.
-
-                    </p>
-                    <br />
-                    <p className="text-gray-600 text-md ">
-                        Our team is a dynamic blend of skilled Recruiters, HR Consultants, Payroll & Statutory Compliance Experts, Corporate Trainers, and Career Counsellors, all committed to driving results and shaping careers.
-                    </p>
-
+                    {points && points.length > 0 && (
+                        <ul className=" pl-5 space-y-2 text-gray-800">
+                            {points.map((point, index) => (
+                                <li key={index} className="text-md font-semibold text-gray-600 flex gap-2 items-center">
+                                    <IoMdCheckmarkCircle  className="text-blue-950 text-xl"/>
+                                    {point}</li>
+                            ))}
+                        </ul>
+                    )}
                 </div>
-
             </div>
-
-
         </section>
-    )
+    );
+};
 
-}
 export default About;

@@ -1,8 +1,6 @@
 import Service from "@/components/Services/Service";
 import Image from "next/image";
-import { FaUserTie, FaSearch, FaMoneyCheckAlt, FaBalanceScale, FaChalkboardTeacher } from 'react-icons/fa';
-import { MdWorkOutline, MdGroups, MdBusinessCenter } from 'react-icons/md';
-import { GiDiscussion } from 'react-icons/gi';
+
 import Line from "@/components/Line/Line";
 import Navbar from "@/components/Navbar/Navbar";
 import Header from "@/components/Header/Header";
@@ -16,76 +14,16 @@ import Client from "@/components/Client/Client";
 
 export default function Home() {
 
-  const service = [
-    {
-      icon: <FaUserTie />,
-      head: "HR Consulting ",
-      desc: "We offer expert HR solutions to improve workforce management, compliance, and organizational effectiveness ",
-      link: "/hrconsulting"
-    },
-    {
-      icon: <FaSearch />,
-      head: "Recruitment and Executive Search ",
-      desc: "From junior roles to leadership positions, we help you hire the best-fit candidates quickly and efficiently ",
-      link: "/recruitmentandexecutivesearch"
-
-    },
-    {
-      icon: <MdWorkOutline />,
-      head: "Flexi Staffing ",
-      desc: "Our flexible staffing services provide skilled professionals on-demand for short-term or project-based needs ",
-      link: "/flexistaffing"
-
-    },
-    {
-      icon: <FaMoneyCheckAlt />,
-      head: "Payroll Management ",
-      desc: "Streamline payroll with our accurate, timely, and fully compliant payroll processing solutions ",
-      link: "/payrollmanagement"
-
-    },
-    {
-      icon: <FaBalanceScale />,
-      head: "Statutory Compliances ",
-      desc: "We ensure your business complies with labor laws and statutory regulations without the hassle ",
-      link: "/statutorycompliance"
-
-    },
-    {
-      icon: <FaChalkboardTeacher />,
-      head: "Learning & Development ",
-      desc: "Customized training programs to boost employee skills, leadership, and overall performance ",
-      link: "/learninganddevelopment"
-
-    },
-    {
-      icon: <MdGroups />,
-      head: "HR Outsourcing ",
-      desc: "Outsource your entire HR function to us for expert handling of recruitment, compliance, and more",
-      link: "/hroutsourcing"
-
-    },
-    {
-      icon: <GiDiscussion />,
-      head: "Career Assessment and Counseling ",
-      desc: "We guide individuals in identifying the right career path based on their skills and interests",
-      link: "/careerassessmentandcounseling"
-
-    },
-    {
-      icon: <MdBusinessCenter />,
-      head: "New Business Establishment & Licensing ",
-      desc: "Complete support for business setup, registrations, and obtaining necessary licenses with ease",
-      link: "/businessestablishmentandlicensing"
-
-    },
-  ]
+ 
   return (
     <main>
       <Navbar />
       <Header />
-      <About />
-      <Service Services={service} />
+      <About img="/abt.webp" head="Who Are We?" desc="Established in 2003, BrainHunt is a trusted HR services provider based in Nagpur, offering comprehensive recruitment, payroll, and compliance solutions. With a dynamic team of HR professionals, recruiters, consultants, and trainers, we bring deep industry expertise to deliver tailored solutions for both IT and non-IT sectors." 
+         desc1="Our approach combines experience, technology, and people-centric strategies to meet the evolving needs of modern businesses. From startups to enterprises, we empower organizations to scale efficiently, stay compliant, and build strong employer brands through strategic HR support."
+          points={["Seamless onboarding and workforce integration", "Consistent service delivery with zero downtime", "Data-driven insights for smarter HR decisions", "Focused support for employer branding and retention"]}
+      />
+      <Service />
       <IndustryServe />
       <Journey />
       <Client />
