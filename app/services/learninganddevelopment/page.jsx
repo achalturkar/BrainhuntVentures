@@ -1,14 +1,18 @@
 
 
+import HeroAll from "@/components/HeroAll/HeroAll";
 
+const LearningAndDevelopment = () => {
 
-const LearningAndDevelopment = () =>{
-
-    return(
+    return (
 
         <>
-        
-        
+            <HeroAll title="Learning & Development" subtitle="Boost performance with customized employee training and leadership programs" />
+            <div className="h-screen">
+
+            </div>
+
+
         </>
     )
 }

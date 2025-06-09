@@ -26,7 +26,7 @@ const Service = ({ Services }) => {
                         <h3 className="text-xl font-bold text-blue-800 mb-2">{each.head}</h3>
                         <p className="text-gray-600 text-sm mb-4">{each.desc}</p>
                         <Link href={each.link}>
-                            <button className="mt-auto bg-orange-600 hover:bg-orange-700 text-white font-medium px-4 py-2 rounded-lg transition-colors hover:cursor">
+                            <button className="mt-auto bg-orange-600 hover:bg-orange-700 text-white font-medium px-4 py-2 rounded-lg transition-colors hover:cursor-pointer">
                                 Read More
                             </button>
                         </Link>

@@ -21,62 +21,62 @@ export default function Home() {
       icon: <FaUserTie />,
       head: "HR Consulting ",
       desc: "We offer expert HR solutions to improve workforce management, compliance, and organizational effectiveness ",
-      link: "/about"
+      link: "/hrconsulting"
     },
     {
       icon: <FaSearch />,
       head: "Recruitment and Executive Search ",
       desc: "From junior roles to leadership positions, we help you hire the best-fit candidates quickly and efficiently ",
-      link: "/about"
+      link: "/recruitmentandexecutivesearch"
 
     },
     {
       icon: <MdWorkOutline />,
       head: "Flexi Staffing ",
       desc: "Our flexible staffing services provide skilled professionals on-demand for short-term or project-based needs ",
-      link: "/about"
+      link: "/flexistaffing"
 
     },
     {
       icon: <FaMoneyCheckAlt />,
       head: "Payroll Management ",
       desc: "Streamline payroll with our accurate, timely, and fully compliant payroll processing solutions ",
-      link: "/about"
+      link: "/payrollmanagement"
 
     },
     {
       icon: <FaBalanceScale />,
       head: "Statutory Compliances ",
       desc: "We ensure your business complies with labor laws and statutory regulations without the hassle ",
-      link: "/about"
+      link: "/statutorycompliance"
 
     },
     {
       icon: <FaChalkboardTeacher />,
       head: "Learning & Development ",
       desc: "Customized training programs to boost employee skills, leadership, and overall performance ",
-      link: "/about"
+      link: "/learninganddevelopment"
 
     },
     {
       icon: <MdGroups />,
       head: "HR Outsourcing ",
       desc: "Outsource your entire HR function to us for expert handling of recruitment, compliance, and more",
-      link: "/about"
+      link: "/hroutsourcing"
 
     },
     {
       icon: <GiDiscussion />,
       head: "Career Assessment and Counseling ",
       desc: "We guide individuals in identifying the right career path based on their skills and interests",
-      link: "/about"
+      link: "/careerassessmentandcounseling"
 
     },
     {
       icon: <MdBusinessCenter />,
       head: "New Business Establishment & Licensing ",
       desc: "Complete support for business setup, registrations, and obtaining necessary licenses with ease",
-      link: "/about"
+      link: "/businessestablishmentandlicensing"
 
     },
   ]
