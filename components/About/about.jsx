@@ -1,6 +1,6 @@
 import Image from "next/image";
 import Line from "../Line/Line";
-import { IoMdCheckmarkCircle } from "react-icons/io";
+import { FaRegCheckCircle } from "react-icons/fa";
 
 
 const About = ({ img, head, desc, desc1, points }) => {
@@ -32,11 +32,12 @@ const About = ({ img, head, desc, desc1, points }) => {
                         <ul className=" pl-5 space-y-2 text-gray-800">
                             {points.map((point, index) => (
                                 <li key={index} className="text-md font-semibold text-gray-600 flex gap-2 items-center">
-                                    <IoMdCheckmarkCircle  className="text-blue-950 text-xl"/>
+                                    <FaRegCheckCircle  className="text-green-600 text-lg"/>
                                     {point}</li>
                             ))}
                         </ul>
                     )}
+                   
                 </div>
             </div>
         </section>

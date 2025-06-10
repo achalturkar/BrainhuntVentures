@@ -1,5 +1,6 @@
 
 import HeroAll from "@/components/HeroAll/HeroAll";
+import JobTable from "@/components/JobTable/JobTable";
 
 
 const Careers = () => {
@@ -10,9 +11,7 @@ const Careers = () => {
         <>
             <HeroAll title=" Careers" subtitle="Be part of a mission-driven team that’s changing the future of HR services" />
 
-            <div className="h-screen">
-
-            </div>
+            <JobTable/>
         </>
     )
 }

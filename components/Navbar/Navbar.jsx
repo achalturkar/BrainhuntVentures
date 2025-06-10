@@ -23,8 +23,8 @@ const Navbar = () => {
 
   const navLinkClass = (path) =>
     `transition-colors duration-200 ${pathname === path
-      ? "text-blue-900 underline underline-offset-4"
-      : "text-[#0A55A0] hover:text-blue-800"
+      ? "text-blue-700 underline underline-offset-4"
+      : "text-blue-500 hover:text-blue-700"
     }`;
 
   const services = [
@@ -44,7 +44,7 @@ const Navbar = () => {
       {/* Top Navbar */}
       <nav
         className={`fixed w-full top-0 z-50 transition-all duration-300 text-center ${scrolled ? "bg-white shadow-md backdrop-blur" : "bg-transparent"
-          } text-black flex items-center justify-between px-4  lg:justify-around font-normal`}
+          } text-black  flex items-center justify-between px-4  lg:justify-around font-semibold`}
       >
         <Link href="/">
           <Image src="/brainhunt-PNG.png" width={160} height={160} alt="Logo" />
@@ -52,15 +52,15 @@ const Navbar = () => {
 
         {/* Desktop Navigation */}
         <ul className="hidden lg:flex items-center gap-8 text-[16px] tracking-wide">
-          <li><Link href="/" className={navLinkClass("/")}>Home</Link></li>
-          <li><Link href="/about" className={navLinkClass("/about")}>About Us</Link></li>
+          <li ><Link href="/" className={`${navLinkClass("/")} py-3 `} >Home</Link></li>
+          <li className="py-4"><Link href="/about"className={`${navLinkClass("/about")} py-3`} >About Us</Link></li>
 
           {/* Clickable Services Dropdown */}
-          <li className="relative group">
-            <Link href="/services" className="flex items-center gap-1 text-[#0A55A0] hover:text-blue-800 transition-colors">
+          <li className="relative group ">
+            <Link href="/services" className="flex items-center gap-1 text-blue-600 hover:text-blue-800 transition-colors py-3 ">
               Services <FaChevronDown size={10} />
             </Link>
-            <div className="absolute top-6 left-0 bg-blue-900 text-left text-white shadow-lg w-60  hidden group-hover:flex flex-col z-50">
+            <div className="absolute top-10 left-0 bg-blue-900 text-left text-white shadow-lg w-60  hidden group-hover:flex flex-col z-50">
               {services.map((service, idx) => (
                 <Link
                   key={idx}
@@ -73,8 +73,8 @@ const Navbar = () => {
             </div>
           </li>
 
-          <li><Link href="/careers" className={navLinkClass("/careers")}>Careers</Link></li>
-          <li><Link href="/contact" className={navLinkClass("/contact")}>Contact Us</Link></li>
+          <li className="py-4"><Link href="/careers" className={`${navLinkClass("/careers")} py-3`} >Careers</Link></li>
+          <li className="py-4"><Link href="/contact" className={`${navLinkClass("/contact")} py-3`} >Contact Us</Link></li>
         </ul>
 
         {/* Brochure Button */}
