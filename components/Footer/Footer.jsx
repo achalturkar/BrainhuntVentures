@@ -90,7 +90,7 @@ const Footer = () => {
                         <Link href="https://facebook.com" target="_blank"><FaFacebook className="hover:text-blue-600" /></Link>
                         <Link href="https://twitter.com" target="_blank"><FaTwitter className="hover:text-sky-500" /></Link>
                         <Link href="https://instagram.com" target="_blank"><FaInstagram className="hover:text-pink-500" /></Link>
-                        <Link href="https://linkedin.com" target="_blank"><FaLinkedin className="hover:text-blue-700" /></Link>
+                        <Link href="https://www.linkedin.com/in/brainhunt-ventures/" target="_blank"><FaLinkedin className="hover:text-blue-700" /></Link>
                     </div>
                 </div>
             </div>

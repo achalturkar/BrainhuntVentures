@@ -18,7 +18,7 @@ const JobTable = () => {
     position: 25,
     experience: "0–2 Years",
     qualification: "Diploma / BE in Electrical Engineering",
-    location: "Aurangabad",
+    location: "Sambhajinagar",
   },
   {
     title: "Junior Engineer - Mechanical",

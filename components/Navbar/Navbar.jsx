@@ -46,8 +46,8 @@ const Navbar = () => {
         className={`fixed w-full top-0 z-50 transition-all duration-300 text-center ${scrolled ? "bg-white shadow-md backdrop-blur" : "bg-transparent"
           } text-black  flex items-center justify-between px-4  lg:justify-around font-semibold`}
       >
-        <Link href="/">
-          <Image src="/brainhunt-PNG.png" width={160} height={160} alt="Logo" />
+        <Link href="/" >
+          <Image src="/brainhunt-PNG.png" width={160} height={160} alt="Logo" onClick={() => setMenuOpen(false)}/>
         </Link>
 
         {/* Desktop Navigation */}
@@ -78,9 +78,11 @@ const Navbar = () => {
         </ul>
 
         {/* Brochure Button */}
+        <Link href="/Brochure-Brainhunt-Ventures.pdf" target="/blank">
         <div className="hidden lg:block p-2 rounded-full bg-blue-900 text-white px-4 font-medium cursor-pointer hover:bg-blue-800 transition">
-          Download Broucher
+           Brochure
         </div>
+        </Link>
 
         {/* Mobile Toggle */}
         <div className="lg:hidden fixed top-6 right-6 z-[100]">
@@ -132,10 +134,12 @@ const Navbar = () => {
           <li><Link href="/careers" onClick={() => setMenuOpen(false)}>Careers</Link></li>
           <li><Link href="/contact" onClick={() => setMenuOpen(false)}>Contact Us</Link></li>
         </ul>
-
+        
+        <Link href="/Brochure-Brainhunt-Ventures.pdf" target="/blank">
         <div className="text-center p-2 mt-6 rounded-full bg-blue-900 text-white font-medium px-4">
-          Download Brochure
+           Brochure
         </div>
+        </Link>
       </div >
     </>
   );
