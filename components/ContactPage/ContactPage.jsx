@@ -1,10 +1,24 @@
 'use client';
 import { useState } from 'react';
-import { FaMapMarkerAlt, FaPhoneAlt, FaEnvelope, FaFacebook, FaInstagram, FaLinkedin, FaTwitter } from 'react-icons/fa';
+import {
+  FaMapMarkerAlt,
+  FaPhoneAlt,
+  FaEnvelope,
+  FaFacebook,
+  FaInstagram,
+  FaLinkedin,
+  FaTwitter
+} from 'react-icons/fa';
 import Link from 'next/link';
 
 const ContactPage = () => {
-  const [form, setForm] = useState({ name: '', email: '', phone: '', file: '', message: '' });
+  const [form, setForm] = useState({
+    name: '',
+    email: '',
+    phone: '',
+    file: '',
+    message: ''
+  });
 
   const handleChange = (e) => {
     const { name, value, files } = e.target;
@@ -14,54 +28,55 @@ const ContactPage = () => {
   const handleSubmit = (e) => {
     e.preventDefault();
     alert("Message submitted successfully!");
-    // Reset form if needed
     setForm({ name: '', email: '', phone: '', file: '', message: '' });
   };
 
   return (
+    
     <section className="bg-blue-50 py-12 px-4 md:px-16">
-      {/* Top Info Boxes */}
-      <div className="grid grid-cols-1 md:grid-cols-4 gap-6 max-w-7xl mx-auto text-center">
+      {/* Contact Info Cards */}
+      <div className="flex flex-wrap justify-center gap-6 max-w-7xl mx-auto mt-8">
         {/* Address */}
-        <div className="bg-white shadow-md p-6 rounded-lg">
-          <FaMapMarkerAlt className="text-blue-900 text-3xl mb-2 mx-auto" />
-          <h3 className="font-bold text-blue-900">Address</h3>
-          <p className="text-sm text-gray-600 mt-2">
+        <div className="flex-1 min-w-full lg:min-w-[48%] bg-gradient-to-br from-white to-blue-50 shadow-lg p-6 rounded-2xl text-center transition-transform hover:-translate-y-1 hover:shadow-2xl">
+          <FaMapMarkerAlt className="text-blue-800 text-4xl mb-3 mx-auto" />
+          <h3 className="text-lg font-semibold text-blue-900 tracking-wide uppercase">Visit Us</h3>
+          <p className="text-sm text-gray-700 mt-2 leading-relaxed">
             Plot No.3, 2nd Floor, Indraprastha Apartment,<br />
-            Dronacharya Nagar, Trimurti Nagar, Nagpur – 440022
+            Dronacharya Nagar, Trimurti Nagar,<br />
+            Nagpur – 440022
           </p>
         </div>
 
         {/* Phone */}
-        <div className="bg-white shadow-md p-6 rounded-lg">
-          <FaPhoneAlt className="text-blue-900 text-3xl mb-2 mx-auto" />
-          <h3 className="font-bold text-blue-900">Phone</h3>
-          <p className="text-sm text-gray-600 mt-2">+91 9960224245</p>
+        <div className="flex-1 min-w-full lg:min-w-[48%] bg-gradient-to-br from-white to-blue-50 shadow-lg p-6 rounded-2xl text-center transition-transform hover:-translate-y-1 hover:shadow-2xl">
+          <FaPhoneAlt className="text-blue-800 text-4xl mb-3 mx-auto" />
+          <h3 className="text-lg font-semibold text-blue-900 tracking-wide uppercase">Call Us</h3>
+          <p className="text-base font-medium text-gray-800 mt-2">+91 9960224245</p>
         </div>
 
         {/* Email */}
-        <div className="bg-white shadow-md p-6 rounded-lg">
-          <FaEnvelope className="text-blue-900 text-3xl mb-2 mx-auto" />
-          <h3 className="font-bold text-blue-900">Email</h3>
-          <p className="text-sm text-gray-600 mt-2">contact@brainhuntventures.com</p>
+        <div className="flex-1 min-w-full lg:min-w-[48%] bg-gradient-to-br from-white to-blue-50 shadow-lg p-6 rounded-2xl text-center transition-transform hover:-translate-y-1 hover:shadow-2xl">
+          <FaEnvelope className="text-blue-800 text-4xl mb-3 mx-auto" />
+          <h3 className="text-lg font-semibold text-blue-900 tracking-wide uppercase">Email</h3>
+          <a to="mailto:contact@brainhuntventures.com" target="_blank"
+                                        className="text-base font-medium text-gray-800 mt-2">contact@brainhuntventures.com</a>
         </div>
 
         {/* Social Icons */}
-        <div className="bg-white shadow-md p-6 rounded-lg">
-          <h3 className="font-bold text-blue-900 mb-2">Follow Us</h3>
-          <div className="flex justify-center gap-4 text-blue-800 text-2xl">
-            <Link href="#"><FaFacebook className="hover:text-blue-600" /></Link>
-            <Link href="#"><FaInstagram className="hover:text-pink-500" /></Link>
-            <Link href="#"><FaTwitter className="hover:text-sky-400" /></Link>
-            <Link href="#"><FaLinkedin className="hover:text-blue-700" /></Link>
+        <div className="flex-1 min-w-full lg:min-w-[48%] bg-gradient-to-br from-white to-blue-50 shadow-lg p-6 rounded-2xl text-center transition-transform hover:-translate-y-1 hover:shadow-2xl">
+          <h3 className="text-lg font-semibold text-blue-900 tracking-wide uppercase mb-3">Follow Us</h3>
+          <div className="flex justify-center gap-4 text-blue-900 text-2xl">
+            <Link href="#"><FaFacebook className="hover:text-blue-600 transition-colors duration-200" /></Link>
+            <Link href="#"><FaInstagram className="hover:text-pink-500 transition-colors duration-200" /></Link>
+            <Link href="#"><FaTwitter className="hover:text-sky-400 transition-colors duration-200" /></Link>
+            <Link href="#"><FaLinkedin className="hover:text-blue-700 transition-colors duration-200" /></Link>
           </div>
         </div>
       </div>
 
-      {/* Form Section */}
+      {/* Contact Form */}
       <div className="mt-12 bg-blue-900 p-8 rounded-lg max-w-xl mx-auto">
         <h3 className="text-white text-2xl font-bold text-center mb-6">Send Us a Message</h3>
-
         <form onSubmit={handleSubmit} className="space-y-4">
           <input
             type="text"
@@ -93,7 +108,7 @@ const ContactPage = () => {
           <input
             type="file"
             name="file"
-            className="w-full p-3 rounded border border-gray-300 bg-white text-gray-600 bg-white"
+            className="w-full p-3 rounded border border-gray-300 bg-white text-gray-600"
             onChange={handleChange}
           />
           <textarea
@@ -105,7 +120,6 @@ const ContactPage = () => {
             value={form.message}
             onChange={handleChange}
           />
-
           <button
             type="submit"
             className="w-full bg-white text-blue-900 font-semibold py-3 rounded hover:bg-gray-100 transition hover:cursor-pointer"

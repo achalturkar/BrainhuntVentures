@@ -80,7 +80,7 @@ const Navbar = () => {
         {/* Brochure Button */}
         <Link href="/Brochure-Brainhunt-Ventures.pdf" target="/blank">
         <div className="hidden lg:block p-2 rounded-full bg-blue-900 text-white px-4 font-medium cursor-pointer hover:bg-blue-800 transition">
-           Brochure
+          Download Brochure
         </div>
         </Link>
 
@@ -137,7 +137,7 @@ const Navbar = () => {
         
         <Link href="/Brochure-Brainhunt-Ventures.pdf" target="/blank">
         <div className="text-center p-2 mt-6 rounded-full bg-blue-900 text-white font-medium px-4">
-           Brochure
+           Download Brochure
         </div>
         </Link>
       </div >
