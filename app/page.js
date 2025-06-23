@@ -30,6 +30,7 @@ export default function Home() {
       />
       <meta name="author" content="Brainhunt Ventures" />
       <meta name="robots" content="index, follow" />
+      <meta name="google-site-verification" content="nOsKnp2OQ6Tya7_prZ-Qp9yJhlcZbPlmwrxOJt-nhck" />
       <link rel="canonical" href="https://www.brainhuntventures.com/" />
 
       </Head>
