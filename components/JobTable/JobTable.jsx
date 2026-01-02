@@ -1,60 +1,80 @@
-
 import Link from "next/link";
 
 const JobTable = () => {
 
   const jobs = [
     {
-      title: "ITI Technician",
-      description: "Responsible for operating and maintaining industrial machinery",
-      position: 80,
-      experience: "Fresher / 1 Year",
-      qualification: "ITI – All Trades",
-      location: "Nagpur",
+      title: "Production Manager",
+      description: "Oversee daily manufacturing operations and ensure production targets are met",
+      position: 20,
+      experience: "7–10 Years",
+      qualification: "Diploma / B.Tech in Mechanical / Production / Electrical",
+      location: "Pune / Nagpur / Chennai",
     },
     {
-      title: "Junior Engineer - Electrical",
-      description: "Assist in electrical system installation, inspection, and troubleshooting",
-      position: 25,
-      experience: "0–2 Years",
-      qualification: "Diploma / BE in Electrical Engineering",
-      location: "Sambhajinagar",
+      title: "Quality Control Engineer",
+      description: "Implement quality standards, conduct inspections, and improve product reliability",
+      position: 30,
+      experience: "4–6 Years",
+      qualification: "Diploma / B.Tech in Mechanical / Production / Electrical",
+      location: "Sambhajinagar / Nagpur / Coimbatore ",
     },
     {
-      title: "Junior Engineer - Mechanical",
-      description: "Support mechanical maintenance and production line tasks",
+      title: "Maintenance Supervisor",
+      description: "Manage maintenance team, ensure machinery uptime, and optimize operations",
+      position: 30,
+      experience: "4–7 Years",
+      qualification: "Diploma / B.Tech in Mechanical / Production / Electrical",
+      location: "Nagpur / Pune / Indore ",
+    },
+    {
+      title: "Industrial Automation Engineer",
+      description: "Lead automation projects, PLC programming, and SCADA system implementation",
       position: 40,
-      experience: "0–2 Years",
-      qualification: "Diploma / BE in Mechanical Engineering",
-      location: "Nagpur",
+      experience: "3–6 Years",
+      qualification: "Diploma / B.Tech in Mechanical / Production / Electrical",
+      location: "Pune / Mumbai / Amravati",
     },
     {
-      title: "Senior Engineer - Automation",
-      description: "Lead industrial automation projects and manage PLC/SCADA systems",
-      position: 5,
-      experience: "3–5 Years",
-      qualification: "BE / BTech in EEE/ECE/Instrumentation/Automation",
-      location: "Pune",
+      title: "Supply Chain Manager",
+      description: "Manage procurement, logistics, and material planning for manufacturing units",
+      position: 30,
+      experience: "5–8 Years",
+      qualification: "Diploma / B.Tech in Mechanical / Electrical ",
+      location: "Nagpur / Noida / kolkata",
     },
     {
-      title: "Automation Trainee",
-      description: "Work on automation tools, PLC programming, and robotics",
-      position: 10,
-      experience: "Fresher",
-      qualification: "Diploma / BE in Electronics / Electrical / Instrumentation",
-      location: "Nagpur",
+      title: "Process Engineer",
+      description: "Optimize manufacturing processes, reduce waste, and improve efficiency",
+      position: 20,
+      experience: "5–7 Years",
+      qualification: "Diploma / B.Tech in Mechanical / Electrical ",
+      location: "Nagpur / Pune / Hyderabad",
+    },
+    {
+      title: "Production Supervisor",
+      description: "Supervise production line, manage staff, and ensure target completion",
+      position: 40,
+      experience: "2–5 Years",
+      qualification: "Diploma / B.Tech in Mechanical / Electrical ",
+      location: "Nagpur / Sambhajinagar / Indore / Pune",
+    },
+    {
+      title: "Maintenance Engineer",
+      description: "Plan and execute preventive and breakdown maintenance for machinery",
+      position: 70,
+      experience: "2–8 Years",
+      qualification: "Diploma / B.Tech in Mechanical / Electrical ",
+      location: "Nagpur / Pune / Indore / Hyderabad /Chennai",
     }
-  ]
-
+  ];
 
   return (
     <section className="p-2">
       <div className="overflow-x-auto">
-
         <table className="w-full border-collapse border shadow-lg">
-
-          <thead className="">
-            <tr className="border  bg-blue-200">
+          <thead className="bg-blue-200">
+            <tr className="border">
               <th className="border p-2 md:p-4">Job Title </th>
               <th className="border p-2 md:p-4">Job Description </th>
               <th className="border p-2 md:p-4">No. Position </th>
@@ -62,41 +82,32 @@ const JobTable = () => {
               <th className="border p-2 md:p-4">Qualification </th>
               <th className="border p-2 md:p-4">Location </th>
               <th className="border p-2 md:p-4">Apply </th>
-
             </tr>
-
           </thead>
-
-
           <tbody className="border">
             {jobs.map((job, idx) => (
-
               <tr key={idx} className="border p-2">
-
-                <td className="border p-2 ">{job.title}</td>
+                <td className="border p-2">{job.title}</td>
                 <td className="border p-2">{job.description}</td>
                 <td className="border p-2">{job.position}</td>
                 <td className="border p-2">{job.experience}</td>
                 <td className="border p-2">{job.qualification}</td>
                 <td className="border p-2">{job.location}</td>
-                <td className="border p-2"><Link href="/contact"><button className="p-1 bg-blue-900 text-sm rounded-md  text-white hover:cursor-pointer">Apply Now</button></Link></td>
-
-
+                <td className="border p-2">
+                  <Link href="/contact">
+                    <button className="p-1 bg-blue-900 text-sm rounded-md text-white hover:cursor-pointer">
+                      Apply Now
+                    </button>
+                  </Link>
+                </td>
               </tr>
             ))}
-
-
           </tbody>
-
-
-
         </table>
       </div>
-
-
-
     </section>
   )
 }
 
 export default JobTable;
+

@@ -6,7 +6,7 @@ import CountUp from "react-countup";
 
 const Journey = () => {
     const Circle = [
-        { count: 22, title: "Years of Experience" },
+        { count: 23, title: "Years of Experience" },
         { count: 150, title: "Clients Served" },
         { count: 2300, title: "Employees Placed" },
         { count: 170, title: "Technologies Covered" },
