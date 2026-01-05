@@ -57,9 +57,9 @@ const Navbar = () => {
 
           {/* Clickable Services Dropdown */}
           <li className="relative group ">
-            <Link href="/services" className="flex items-center gap-1 text-blue-600 hover:text-blue-800 transition-colors py-3 ">
+            <div className="flex items-center gap-1 text-blue-600 hover:text-blue-800 transition-colors py-3 ">
               Services <FaChevronDown size={10} />
-            </Link>
+            </div>
             <div className="absolute top-10 left-0 bg-blue-900 text-left text-white shadow-lg w-60  hidden group-hover:flex flex-col z-50">
               {services.map((service, idx) => (
                 <Link
