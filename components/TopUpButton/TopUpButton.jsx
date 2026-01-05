@@ -33,7 +33,7 @@ const TopUpButton = () =>{
     const handleClick = () =>{
           clientWindow?.scrollTo({
             top:0,
-            behaviour : "smooth"
+            behavior : "smooth"
           })
     }
 
