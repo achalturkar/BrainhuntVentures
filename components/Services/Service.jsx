@@ -3,6 +3,7 @@ import Link from "next/link";
 import { FaUserTie, FaSearch, FaMoneyCheckAlt, FaBalanceScale, FaChalkboardTeacher } from 'react-icons/fa';
 import { MdWorkOutline, MdGroups, MdBusinessCenter } from 'react-icons/md';
 import { GiDiscussion } from 'react-icons/gi';
+import { FiShield } from "react-icons/fi";
 
 const Service = () => {
 
@@ -12,6 +13,12 @@ const Service = () => {
             head: "HR Consulting ",
             desc: "We offer expert HR solutions to improve workforce management, compliance, and organizational effectiveness ",
             link: "/services/hrconsulting"
+        },
+        {
+            icon: <FiShield />,
+            head: "Background Verification Services",
+            desc: "We offer comprehensive BGV solutions including employment, education, identity, criminal, address, credit checks and more to help you hire with complete confidence.",
+            link: "/services/backgroundverification"
         },
         {
             icon: <FaSearch />,
@@ -55,13 +62,13 @@ const Service = () => {
             link: "/services/hroutsourcing"
 
         },
-        {
-            icon: <GiDiscussion />,
-            head: "Career Assessment and Counseling ",
-            desc: "We guide individuals in identifying the right career path based on their skills and interests",
-            link: "/services/careerassessmentandcounselling"
+        // {
+        //     icon: <GiDiscussion />,
+        //     head: "Career Assessment and Counseling ",
+        //     desc: "We guide individuals in identifying the right career path based on their skills and interests",
+        //     link: "/services/careerassessmentandcounselling"
 
-        },
+        // },
         {
             icon: <MdBusinessCenter />,
             head: "New Business Establishment & Licensing ",
@@ -72,7 +79,7 @@ const Service = () => {
     ]
 
     return (
-        <section className="py-10 md:py-12 px-4 bg-gray-50">
+        <section id="services" className="py-10 md:py-12 px-4 bg-gray-50">
             <div className="text-center mb-12">
                 <h2 className="text-3xl md:text-4xl font-bold text-black mb-4 tracking-tight">
                     Services We Provide

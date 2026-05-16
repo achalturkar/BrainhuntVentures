@@ -25,7 +25,7 @@ const Contact = () => {
                 />
                 <meta name="author" content="Brainhunt Ventures" />
                 <meta name="robots" content="index, follow" />
-                <link rel="canonical" href="https://www.brainhuntventures.com/contact" />
+                <link rel="canonical" href="https://www.brainhuntventures.com/contact/" />
 
             </Head>
 
@@ -35,7 +35,7 @@ const Contact = () => {
                 <ContactPage />
 
 
-                <Map />
+                {/* <Map /> */}
             </main>
         </>
 

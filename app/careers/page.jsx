@@ -1,4 +1,5 @@
 
+import CTA from "@/components/CTA/CTA";
 import HeroAll from "@/components/HeroAll/HeroAll";
 import JobTable from "@/components/JobTable/JobTable";
 import Head from "next/head";
@@ -22,13 +23,15 @@ const Careers = () => {
                 />
                 <meta name="author" content="Brainhunt Ventures" />
                 <meta name="robots" content="index, follow" />
-                <link rel="canonical" href="https://www.brainhuntventures.com/careers" />
+                <link rel="canonical" href="https://www.brainhuntventures.com/careers/" />
 
             </Head>
             <main>
                 <HeroAll title=" Careers" subtitle="Be part of a mission-driven team that’s changing the future of HR services" />
 
                 <JobTable />
+
+                <CTA/>
             </main>
         </>
     )

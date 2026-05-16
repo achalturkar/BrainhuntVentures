@@ -5,7 +5,7 @@ import { FaRegCheckCircle } from "react-icons/fa";
 
 const About = ({ img, head, desc, desc1, points }) => {
     return (
-        <section className="bg-blue-50 py-10 md:py-12">
+        <section id="about" className="bg-blue-50 py-10 md:py-12">
             <div className="flex flex-col md:flex-row justify-center items-center gap-8 px-4 md:px-10 lg:px-16 max-w-7xl mx-auto">
 
                 {/* Left Image */}

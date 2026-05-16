@@ -24,7 +24,7 @@ const AboutUs = () => {
                 />
                 <meta name="author" content="Brainhunt Ventures" />
                 <meta name="robots" content="index, follow" />
-                <link rel="canonical" href="https://www.brainhuntventures.com/about" />
+                <link rel="canonical" href="https://www.brainhuntventures.com/about/" />
 
 
             </Head>
