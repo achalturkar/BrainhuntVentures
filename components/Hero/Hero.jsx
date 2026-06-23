@@ -388,7 +388,7 @@ export default function Hero() {
           </p>
 
           <p className="hero-desc">
-            At BrainHunt Ventures, we deliver tailored HR solutions that simplify
+            At BrainHunt Ventures, we deliver tailored BGV Verification, HR solutions that simplify
             staffing, streamline compliance, and empower your business to grow
             with the right talent — fast, reliable, and efficient.
           </p>

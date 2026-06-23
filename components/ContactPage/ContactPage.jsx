@@ -39,6 +39,16 @@ const infoCards = [
     bg: '#eff6ff',
   },
   {
+    icon: <FaMapMarkerAlt size={22} />,
+    title: 'Branch Office',
+    content:
+      'Office No 5, 2nd floor, Siddhivinayak towers, Bibvewadi Road, Pune 411037, India',
+    link: 'https://maps.app.goo.gl/8Eqm48maYwbauaw66',
+    linkLabel: 'Get Directions',
+    color: '#1e3a8a',
+    bg: '#eff6ff',
+  },
+  {
     icon: <FaPhoneAlt size={22} />,
     title: 'Call Us',
     content: '+91 9960224245',
@@ -229,9 +239,9 @@ export default function ContactPage() {
         /* info cards */
         .info-grid {
           display: grid;
-          grid-template-columns: repeat(3, 1fr);
+          grid-template-columns: repeat(4, 1fr);
           gap: 20px;
-          max-width: 900px;
+          max-width: 1100px;
           margin: -36px auto 0;
           padding: 0 5vw;
           position: relative; z-index: 10;

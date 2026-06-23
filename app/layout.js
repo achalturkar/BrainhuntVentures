@@ -4,6 +4,7 @@ import TopUpButton from "@/components/TopUpButton/TopUpButton";
 import Whatsapp from "@/components/Whatsapp/Whatsapp";
 import Navbar from "@/components/Navbar/Navbar";
 import Footer from "@/components/Footer/Footer";
+import BgvButton from "@/components/BGV/BgvButton";
 
 const poppins = Poppins({
   subsets: ['latin'],
@@ -27,6 +28,7 @@ export default function RootLayout({ children }) {
         {children}
         <TopUpButton />
         <Whatsapp />
+        <BgvButton/>
         <Footer/>
       </body>
     </html>
