@@ -6,6 +6,7 @@ import {
   FiBook, FiAlertTriangle, FiDatabase, FiGlobe, FiCreditCard,
   FiPhone, FiActivity
 } from "react-icons/fi";
+import BGVServiceSection from "@/components/BgvServiceSection/BGVServiceSection";
 
 const bgvServices = [
   {
@@ -225,6 +226,8 @@ const BGVServices = () => {
           title="Background Verification Services"
           subtitle="Comprehensive, fast, and reliable BGV solutions to help you hire with complete confidence"
         />
+
+        <BGVServiceSection/>
 
         {/* <About
           img="/bgv.webp"

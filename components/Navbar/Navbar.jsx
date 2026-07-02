@@ -5,6 +5,7 @@ import { FiMenu, FiX, FiHome, FiInfo, FiBriefcase, FiBookOpen, FiPhone, FiDownlo
 import Image from "next/image";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
+import { CgFileDocument } from "react-icons/cg";
 
 const Navbar = () => {
   const [menuOpen, setMenuOpen] = useState(false);
@@ -31,16 +32,16 @@ const Navbar = () => {
     }`;
 
   const services = [
-    { name: "Payroll Management",               link: "/services/payrollmanagement" },
-    { name: "Background Verification",          link: "/services/backgroundverification" },
-    { name: "Statutory Compliances",            link: "/services/statutorycompliances" },
-    { name: "HR Outsourcing",                   link: "/services/hroutsourcing" },
-    { name: "Recruitment & Executive Search",   link: "/services/recruitmentandexecutivesearch" },
-    { name: "Flexi Staffing",                   link: "/services/flexistaffing" },
-    { name: "HR Consulting",                    link: "/services/hrconsulting" },
-    { name: "Business Establishment & Licenses",link: "/services/businessestablishmentandlicensing" },
-    { name: "Learning & Development",           link: "/services/learninganddevelopment" },
-    { name: "Career Assessment & Counselling",  link: "/services/careerassessmentandcounselling" },
+    { name: "Payroll Management", link: "/services/payrollmanagement" },
+    { name: "Background Verification", link: "/services/backgroundverification" },
+    { name: "Statutory Compliances", link: "/services/statutorycompliances" },
+    { name: "HR Outsourcing", link: "/services/hroutsourcing" },
+    { name: "Recruitment & Executive Search", link: "/services/recruitmentandexecutivesearch" },
+    { name: "Flexi Staffing", link: "/services/flexistaffing" },
+    { name: "HR Consulting", link: "/services/hrconsulting" },
+    { name: "Business Establishment & Licenses", link: "/services/businessestablishmentandlicensing" },
+    { name: "Learning & Development", link: "/services/learninganddevelopment" },
+    { name: "Career Assessment & Counselling", link: "/services/careerassessmentandcounselling" },
   ];
 
   const close = () => { setMenuOpen(false); setMobileServicesOpen(false); };
@@ -50,7 +51,7 @@ const Navbar = () => {
       {/* ── DESKTOP NAVBAR ── */}
       <nav className={`fixed w-full top-0 z-50 transition-all duration-300 text-center ${scrolled ? "bg-white shadow-md backdrop-blur" : "bg-transparent"} text-black flex items-center justify-between px-4 lg:justify-around font-semibold`}>
         <Link href="/">
-          <Image src="/brainhunt-PNG.png" width={160} height={160} alt="Logo" onClick={close} />
+          <Image src="/brainhunt-PNG.png" width={140} height={140} alt="Logo" onClick={close} />
         </Link>
 
         <ul className="hidden lg:flex items-center gap-8 text-[16px] tracking-wide">
@@ -72,11 +73,21 @@ const Navbar = () => {
           <li className="py-4"><Link href="/contact" className={`${navLinkClass("/contact")} py-3`}>Contact Us</Link></li>
         </ul>
 
-        <Link href="/Brochure-Brainhunt-Ventures.pdf" target="_blank">
-          <div className="hidden lg:block p-2 rounded-full bg-blue-900 text-white px-4 font-medium cursor-pointer hover:bg-blue-800 transition">
-            Download Brochure
-          </div>
-        </Link>
+        <div className="hidden lg:flex items-center gap-4">
+
+
+          <Link href="https://bgv.brainhuntventures.com" target="_blank">
+            <div className="hidden lg:block p-1 rounded-sm bg-white text-blue-900 border border-blue-900 px-4 text-base font-medium cursor-pointer transition">
+              BGV Service
+            </div>
+          </Link>
+
+          {/* <Link href="/Brochure-Brainhunt-Ventures.pdf" target="_blank">
+            <div className="hidden lg:block p-1 rounded-sm bg-blue-900 text-white px-4 text-md font-medium cursor-pointer hover:bg-blue-800 transition">
+              Download Brochure
+            </div>
+          </Link> */}
+        </div>
 
         {/* Mobile toggle */}
         <button
@@ -176,11 +187,19 @@ const Navbar = () => {
         </div>
 
         {/* drawer footer — brochure CTA */}
-        <div className="px-4 py-5 border-t border-gray-100">
+        <div className="px-4 py-5 border-t border-gray-100 gap-2 flex flex-col">
           <Link href="/Brochure-Brainhunt-Ventures.pdf" target="_blank" onClick={close}>
             <div className="flex items-center justify-center gap-2 w-full py-3 rounded-xl bg-blue-900 text-white text-sm font-semibold hover:bg-blue-800 transition">
               <FiDownload size={15} />
               Download Brochure
+            </div>
+          </Link>
+
+          
+          <Link href="https://bgv.brainhuntventures.com" target="_blank">
+            <div className="flex items-center justify-center gap-2 w-full py-3 rounded-xl bg-blue-900 text-white text-sm font-semibold hover:bg-blue-800 transition">
+                            <CgFileDocument size={15} />
+              BGV Service
             </div>
           </Link>
           <p className="text-center text-[10px] text-gray-400 mt-3">© {new Date().getFullYear()} BrainHunt Ventures</p>

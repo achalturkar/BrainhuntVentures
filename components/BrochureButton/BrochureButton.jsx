@@ -8,8 +8,8 @@ const BrochureButton = () => {
     return (
         <Link href="/Brochure-Brainhunt-Ventures.pdf" target="/blank">
 
-            <div className=" lg:block p-2 rounded-full bg-blue-900 text-white px-4 font-medium cursor-pointer hover:bg-blue-800 transition">
-             Download   Brochure
+            <div className=" lg:block p-1 rounded-md bg-blue-900 text-white px-4 text-xs font-light cursor-pointer hover:bg-blue-800 transition">
+             Download Brochure
 
             </div>
         </Link>

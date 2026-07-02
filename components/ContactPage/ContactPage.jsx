@@ -9,6 +9,8 @@ import {
   FaInstagram,
   FaLinkedin,
   FaTwitter,
+  FaDirections,
+  FaBuilding,
 } from 'react-icons/fa';
 
 import {
@@ -20,6 +22,7 @@ import {
   FiPaperclip,
   FiCheckCircle,
   FiAlertCircle,
+  FiArrowRight,
 } from 'react-icons/fi';
 
 import Link from 'next/link';
@@ -27,45 +30,54 @@ import Head from 'next/head';
 
 const WHATSAPP_NUMBER = '919960224245'; // country code + number, no + or spaces
 
-const infoCards = [
+/* ---------------------------------------------------------
+   OFFICES — their own dedicated section, separate from the
+   contact form / map area below.
+--------------------------------------------------------- */
+const offices = [
   {
-    icon: <FaMapMarkerAlt size={22} />,
-    title: 'Visit Us',
-    content:
+    tag: 'Head Office',
+    city: 'Nagpur',
+    address:
       'Plot No.3, 2nd Floor, Indraprastha Apartment, Dronacharya Nagar, Trimurti Nagar, Nagpur – 440022',
     link: 'https://maps.app.goo.gl/PRN4ZYVoDxMU9yav5',
-    linkLabel: 'Get Directions',
-    color: '#1e3a8a',
-    bg: '#eff6ff',
+    featured: true,
   },
   {
-    icon: <FaMapMarkerAlt size={22} />,
-    title: 'Branch Office',
-    content:
+    tag: 'Branch Office',
+    city: 'Pune',
+    address:
       'Office No 5, 2nd floor, Siddhivinayak towers, Bibvewadi Road, Pune 411037, India',
     link: 'https://maps.app.goo.gl/8Eqm48maYwbauaw66',
-    linkLabel: 'Get Directions',
-    color: '#1e3a8a',
-    bg: '#eff6ff',
+    featured: false,
   },
   {
-    icon: <FaPhoneAlt size={22} />,
+    tag: 'Branch Office',
+    city: 'Bangalore',
+    address:
+      'A1306, Skylark Esta Apartment, near Hoodi Metro Station, Bangalore – 560048',
+    link:
+      'https://www.google.com/maps/search/?api=1&query=A1306%2C+Skylark+Esta+Apartment%2C+near+Hoodi+Metro+Station%2C+Bangalore-560048',
+    featured: false,
+  },
+];
+
+/* Quick direct-contact info — phone & email only, kept apart from offices */
+const quickContacts = [
+  {
+    icon: <FaPhoneAlt size={20} />,
     title: 'Call Us',
     content: '+91 9960224245',
     link: 'tel:+919960224245',
     linkLabel: 'Call Now',
-    color: '#1e3a8a',
-    bg: '#eff6ff',
   },
   {
-    icon: <FaEnvelope size={22} />,
+    icon: <FaEnvelope size={20} />,
     title: 'Email Us',
     content: 'contact@brainhuntventures.com',
     content2: 'jobs@brainhuntventures.com',
     link: 'mailto:contact@brainhuntventures.com',
     linkLabel: 'Send Email',
-    color: '#1e3a8a',
-    bg: '#eff6ff',
   },
 ];
 
@@ -93,7 +105,6 @@ const socials = [
 ];
 
 export default function ContactPage() {
-
   const [form, setForm] = useState({
     name: '',
     email: '',
@@ -102,8 +113,6 @@ export default function ContactPage() {
   });
 
   const [file, setFile] = useState(null);
-
-  // ✅ STATUS STATE ADDED
   const [status, setStatus] = useState('');
 
   const handleChange = (e) =>
@@ -143,29 +152,14 @@ export default function ContactPage() {
 
       setStatus('success');
 
-      // Reset form
-      setForm({
-        name: '',
-        email: '',
-        phone: '',
-        message: '',
-      });
-
+      setForm({ name: '', email: '', phone: '', message: '' });
       setFile(null);
 
-      // Auto remove success message
-      setTimeout(() => {
-        setStatus('');
-      }, 4000);
-
+      setTimeout(() => setStatus(''), 4000);
     } catch (error) {
       console.error(error);
-
       setStatus('error');
-
-      setTimeout(() => {
-        setStatus('');
-      }, 4000);
+      setTimeout(() => setStatus(''), 4000);
     }
   };
 
@@ -173,7 +167,6 @@ export default function ContactPage() {
     <>
       <Head>
         <title>Contact Us – BrainHunt Ventures</title>
-
         <meta
           name="description"
           content="Get in touch with BrainHunt Ventures for recruitment, HR consulting, payroll, BGV and more."
@@ -183,15 +176,14 @@ export default function ContactPage() {
       <style>{`
         .contact-page { background: #fff; min-height: 100vh; }
 
-        /* hero strip */
+        /* ============ HERO ============ */
         .contact-hero {
           background: #04112b;
-          padding: 100px 6vw 60px;
+          padding: 100px 6vw 70px;
           text-align: center;
           position: relative;
           overflow: hidden;
         }
-
         .contact-hero::before {
           content: '';
           position: absolute; inset: 0;
@@ -199,7 +191,6 @@ export default function ContactPage() {
           background-size: 28px 28px;
           pointer-events: none;
         }
-
         .contact-hero::after {
           content: '';
           position: absolute;
@@ -208,7 +199,6 @@ export default function ContactPage() {
           background: radial-gradient(circle, rgba(37,99,235,0.2) 0%, transparent 70%);
           pointer-events: none;
         }
-
         .contact-hero-label {
           display: inline-block;
           background: rgba(37,99,235,0.15);
@@ -220,48 +210,186 @@ export default function ContactPage() {
           color: #60a5fa; margin-bottom: 18px;
           position: relative; z-index: 1;
         }
-
         .contact-hero h1 {
           font-size: clamp(2rem, 4vw, 3rem);
           font-weight: 800; color: #f0f6ff;
           letter-spacing: -0.03em; margin-bottom: 14px;
           position: relative; z-index: 1;
         }
-
         .contact-hero h1 span { color: #3b82f6; }
-
         .contact-hero p {
           color: #94a3b8; font-size: 1rem; max-width: 500px;
           margin: 0 auto; line-height: 1.75;
           position: relative; z-index: 1;
         }
 
-        /* info cards */
-        .info-grid {
-          display: grid;
-          grid-template-columns: repeat(4, 1fr);
-          gap: 20px;
-          max-width: 1100px;
-          margin: -36px auto 0;
-          padding: 0 5vw;
-          position: relative; z-index: 10;
+        /* ============ OUR OFFICES (dedicated section) ============ */
+        .offices-section {
+          background: #f8fafc;
+          padding: 80px 5vw 64px;
+          border-bottom: 1px solid #e2e8f0;
+        }
+        .offices-head {
+          max-width: 640px;
+          margin: 0 auto 44px;
+          text-align: center;
+        }
+        .offices-eyebrow {
+          display: inline-flex;
+          align-items: center;
+          gap: 6px;
+          background: #eff6ff;
+          border: 1px solid #bfdbfe;
+          color: #1d4ed8;
+          font-size: 0.72rem;
+          font-weight: 700;
+          letter-spacing: 0.1em;
+          text-transform: uppercase;
+          padding: 5px 16px;
+          border-radius: 999px;
+          margin-bottom: 14px;
+        }
+        .offices-head h2 {
+          font-size: clamp(1.6rem, 3vw, 2.1rem);
+          font-weight: 800;
+          color: #0f172a;
+          letter-spacing: -0.02em;
+          margin-bottom: 10px;
+        }
+        .offices-head p {
+          color: #64748b;
+          font-size: 0.95rem;
+          line-height: 1.7;
         }
 
+        .offices-grid {
+          display: grid;
+          grid-template-columns: repeat(3, 1fr);
+          gap: 24px;
+          max-width: 1100px;
+          margin: 0 auto;
+        }
+
+        .office-card {
+          position: relative;
+          background: #fff;
+          border: 1px solid #e2e8f0;
+          border-radius: 18px;
+          padding: 30px 26px 26px;
+          box-shadow: 0 4px 20px rgba(15,23,42,0.05);
+          transition: transform 0.25s ease, box-shadow 0.25s ease, border-color 0.25s ease;
+          display: flex;
+          flex-direction: column;
+        }
+        .office-card:hover {
+          transform: translateY(-6px);
+          box-shadow: 0 16px 40px rgba(15,23,42,0.12);
+          border-color: #bfdbfe;
+        }
+        .office-card.featured {
+          border: 1.5px solid #1e3a8a;
+        }
+        .office-card.featured::before {
+          content: 'HQ';
+          position: absolute;
+          top: -11px;
+          right: 20px;
+          background: #f97316;
+          color: #fff;
+          font-size: 0.66rem;
+          font-weight: 800;
+          letter-spacing: 0.08em;
+          padding: 4px 12px;
+          border-radius: 999px;
+          box-shadow: 0 4px 10px rgba(249,115,22,0.35);
+        }
+
+        .office-icon {
+          width: 50px;
+          height: 50px;
+          border-radius: 14px;
+          background: linear-gradient(135deg, #1e3a8a, #2563eb);
+          color: #fff;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          margin-bottom: 18px;
+        }
+
+        .office-tag {
+          display: inline-block;
+          font-size: 0.66rem;
+          font-weight: 700;
+          letter-spacing: 0.08em;
+          text-transform: uppercase;
+          color: #1d4ed8;
+          background: #eff6ff;
+          padding: 3px 10px;
+          border-radius: 6px;
+          margin-bottom: 10px;
+          width: fit-content;
+        }
+
+        .office-card.featured .office-tag {
+          color: #b45309;
+          background: #fff7ed;
+        }
+
+        .office-card h3 {
+          font-size: 1.15rem;
+          font-weight: 800;
+          color: #0f172a;
+          margin-bottom: 10px;
+        }
+
+        .office-card address {
+          font-style: normal;
+          font-size: 0.88rem;
+          color: #64748b;
+          line-height: 1.65;
+          margin-bottom: 20px;
+          flex-grow: 1;
+        }
+
+        .office-link {
+          display: inline-flex;
+          align-items: center;
+          gap: 7px;
+          font-size: 0.83rem;
+          font-weight: 700;
+          color: #1e3a8a;
+          text-decoration: none;
+          padding-top: 14px;
+          border-top: 1px solid #f1f5f9;
+        }
+        .office-link:hover { color: #f97316; }
+
+        /* ============ INFO / QUICK CONTACT STRIP ============ */
+        .quick-section {
+          padding: 56px 5vw 0;
+          max-width: 1100px;
+          margin: 0 auto;
+        }
+        .quick-grid {
+          display: grid;
+          grid-template-columns: repeat(2, 1fr);
+          gap: 20px;
+        }
         .info-card {
           background: #fff;
           border: 1px solid #e2e8f0;
           border-radius: 16px;
-          padding: 28px 20px;
-          text-align: center;
-          box-shadow: 0 4px 24px rgba(0,0,0,0.07);
+          padding: 26px 24px;
+          display: flex;
+          align-items: flex-start;
+          gap: 16px;
+          box-shadow: 0 4px 24px rgba(0,0,0,0.05);
           transition: transform 0.25s, box-shadow 0.25s;
         }
-
         .info-card:hover {
           transform: translateY(-4px);
-          box-shadow: 0 12px 40px rgba(0,0,0,0.12);
+          box-shadow: 0 12px 40px rgba(0,0,0,0.1);
         }
-
         .info-card-icon {
           width: 52px;
           height: 52px;
@@ -271,42 +399,35 @@ export default function ContactPage() {
           display: flex;
           align-items: center;
           justify-content: center;
-          margin: 0 auto 14px;
+          flex-shrink: 0;
         }
-
-        .info-card h3 {
+        .info-card-body h3 {
           font-size: 0.72rem;
           font-weight: 700;
           letter-spacing: 0.1em;
           text-transform: uppercase;
           color: #94a3b8;
-          margin-bottom: 8px;
+          margin-bottom: 6px;
         }
-
-        .info-card p {
-          font-size: 0.9rem;
+        .info-card-body p {
+          font-size: 0.92rem;
           color: #334155;
           line-height: 1.6;
-          margin-bottom: 12px;
+          margin-bottom: 10px;
         }
-
         .info-card a.card-link {
           font-size: 0.8rem;
-          font-weight: 600;
+          font-weight: 700;
           color: #2563eb;
           text-decoration: none;
           border-bottom: 1px solid #bfdbfe;
-          transition: color 0.2s;
         }
+        .info-card a.card-link:hover { color: #1d4ed8; }
 
-        .info-card a.card-link:hover {
-          color: #1d4ed8;
-        }
-
-        /* main body */
+        /* ============ MAIN BODY (map + form) ============ */
         .contact-body {
           max-width: 1100px;
-          margin: 60px auto;
+          margin: 56px auto 80px;
           padding: 0 5vw;
           display: grid;
           grid-template-columns: 1fr 1.4fr;
@@ -314,7 +435,6 @@ export default function ContactPage() {
           align-items: start;
         }
 
-        /* left panel */
         .contact-left h2 {
           font-size: 1.6rem;
           font-weight: 800;
@@ -322,7 +442,6 @@ export default function ContactPage() {
           letter-spacing: -0.02em;
           margin-bottom: 12px;
         }
-
         .contact-left p {
           color: #64748b;
           font-size: 0.93rem;
@@ -337,7 +456,6 @@ export default function ContactPage() {
           box-shadow: 0 4px 20px rgba(0,0,0,0.07);
           margin-bottom: 28px;
         }
-
         .map-wrap iframe {
           display: block;
           width: 100%;
@@ -345,12 +463,7 @@ export default function ContactPage() {
           border: none;
         }
 
-        .social-row {
-          display: flex;
-          gap: 10px;
-          flex-wrap: wrap;
-        }
-
+        .social-row { display: flex; gap: 10px; flex-wrap: wrap; }
         .social-btn {
           display: inline-flex;
           align-items: center;
@@ -365,7 +478,6 @@ export default function ContactPage() {
           transition: all 0.2s;
           background: #fff;
         }
-
         .social-btn:hover {
           border-color: #bfdbfe;
           background: #eff6ff;
@@ -380,14 +492,12 @@ export default function ContactPage() {
           padding: 36px 32px;
           box-shadow: 0 4px 32px rgba(0,0,0,0.07);
         }
-
         .contact-form-wrap h3 {
           font-size: 1.3rem;
           font-weight: 800;
           color: #1e3a8a;
           margin-bottom: 6px;
         }
-
         .contact-form-wrap .form-sub {
           font-size: 0.85rem;
           color: #94a3b8;
@@ -395,7 +505,6 @@ export default function ContactPage() {
         }
 
         .field-group { margin-bottom: 16px; }
-
         .field-label {
           display: block;
           font-size: 0.75rem;
@@ -405,7 +514,6 @@ export default function ContactPage() {
           text-transform: uppercase;
           margin-bottom: 6px;
         }
-
         .field-wrap {
           display: flex;
           align-items: center;
@@ -415,13 +523,11 @@ export default function ContactPage() {
           transition: border-color 0.2s, box-shadow 0.2s;
           overflow: hidden;
         }
-
         .field-wrap:focus-within {
           border-color: #3b82f6;
           box-shadow: 0 0 0 3px rgba(59,130,246,0.1);
           background: #fff;
         }
-
         .field-icon {
           padding: 0 12px;
           color: #94a3b8;
@@ -429,7 +535,6 @@ export default function ContactPage() {
           display: flex;
           align-items: center;
         }
-
         .field-wrap input,
         .field-wrap textarea {
           flex: 1;
@@ -442,14 +547,12 @@ export default function ContactPage() {
           width: 100%;
           font-family: inherit;
         }
-
         .field-wrap textarea {
           padding-top: 12px;
           resize: vertical;
           min-height: 100px;
         }
 
-        /* file input */
         .file-wrap {
           border: 1.5px dashed #cbd5e1;
           border-radius: 10px;
@@ -461,30 +564,14 @@ export default function ContactPage() {
           cursor: pointer;
           transition: border-color 0.2s, background 0.2s;
         }
-
         .file-wrap:hover {
           border-color: #3b82f6;
           background: #eff6ff;
         }
+        .file-wrap input[type="file"] { display: none; }
+        .file-label { font-size: 0.85rem; color: #64748b; cursor: pointer; flex: 1; }
+        .file-name { font-size: 0.8rem; color: #2563eb; font-weight: 500; }
 
-        .file-wrap input[type="file"] {
-          display: none;
-        }
-
-        .file-label {
-          font-size: 0.85rem;
-          color: #64748b;
-          cursor: pointer;
-          flex: 1;
-        }
-
-        .file-name {
-          font-size: 0.8rem;
-          color: #2563eb;
-          font-weight: 500;
-        }
-
-        /* submit */
         .submit-btn {
           width: 100%;
           padding: 13px;
@@ -503,18 +590,12 @@ export default function ContactPage() {
           margin-top: 8px;
           font-family: inherit;
         }
-
         .submit-btn:hover:not(:disabled) {
           background: #1d4ed8;
           transform: translateY(-1px);
         }
+        .submit-btn:disabled { opacity: 0.7; cursor: not-allowed; }
 
-        .submit-btn:disabled {
-          opacity: 0.7;
-          cursor: not-allowed;
-        }
-
-        /* toast */
         .toast {
           display: flex;
           align-items: center;
@@ -525,77 +606,112 @@ export default function ContactPage() {
           font-weight: 500;
           margin-bottom: 16px;
         }
+        .toast.success { background: #f0fdf4; border: 1px solid #bbf7d0; color: #166534; }
+        .toast.error { background: #fef2f2; border: 1px solid #fecaca; color: #991b1b; }
 
-        .toast.success {
-          background: #f0fdf4;
-          border: 1px solid #bbf7d0;
-          color: #166534;
-        }
+        @keyframes spin { to { transform: rotate(360deg); } }
 
-        .toast.error {
-          background: #fef2f2;
-          border: 1px solid #fecaca;
-          color: #991b1b;
-        }
-
-        /* responsive */
+        /* ============ RESPONSIVE ============ */
         @media (max-width: 860px) {
-          .info-grid {
-            grid-template-columns: 1fr;
-            margin-top: -20px;
-          }
-
-          .contact-body {
-            grid-template-columns: 1fr;
-            gap: 32px;
-          }
-
-          .contact-form-wrap {
-            padding: 28px 20px;
-          }
+          .offices-grid { grid-template-columns: 1fr; }
+          .quick-grid { grid-template-columns: 1fr; }
+          .contact-body { grid-template-columns: 1fr; gap: 32px; }
+          .contact-form-wrap { padding: 28px 20px; }
         }
       `}</style>
 
       <div className="contact-page">
 
-        {/* INFO CARDS */}
-        <div className="info-grid">
-          {infoCards.map((c, i) => (
-            <div className="info-card" key={i}>
-              <div className="info-card-icon">{c.icon}</div>
+        {/* ============ HERO ============ */}
+        {/* <section className="contact-hero">
+          <span className="contact-hero-label">Get In Touch</span>
+          <h1>
+            Let's Talk <span>Talent & HR</span>
+          </h1>
+          <p>
+            Reach out for recruitment, payroll, compliance or BGV support —
+            our team responds within one business day.
+          </p>
+        </section> */}
 
-              <h3>{c.title}</h3>
+        {/* ============ OUR OFFICES — dedicated section ============ */}
+        <section className="offices-section">
+          <div className="offices-head">
+            <span className="offices-eyebrow">
+              <FaBuilding size={12} /> Where To Find Us
+            </span>
+            <h2>Our Offices</h2>
+            <p>
+              Three locations, one team. Drop by, or get directions straight
+              to whichever office is closest to you.
+            </p>
+          </div>
 
-              <p>{c.content}</p>
-
-              {c.content2 && <p>{c.content2}</p>}
-
-              <a
-                href={c.link}
-                className="card-link"
-                target="_blank"
-                rel="noreferrer"
+          <div className="offices-grid">
+            {offices.map((office, i) => (
+              <div
+                className={`office-card ${office.featured ? 'featured' : ''}`}
+                key={i}
               >
-                {c.linkLabel} →
-              </a>
-            </div>
-          ))}
-        </div>
+                <div className="office-icon">
+                  <FaMapMarkerAlt size={20} />
+                </div>
 
-        {/* BODY */}
+                <span className="office-tag">{office.tag}</span>
+
+                <h3>{office.city}</h3>
+
+                <address>{office.address}</address>
+
+                <a
+                  href={office.link}
+                  className="office-link"
+                  target="_blank"
+                  rel="noreferrer"
+                >
+                  <FaDirections size={14} />
+                  Get Directions
+                  <FiArrowRight size={13} />
+                </a>
+              </div>
+            ))}
+          </div>
+        </section>
+
+        {/* ============ QUICK CONTACT STRIP ============ */}
+        <section className="quick-section">
+          <div className="quick-grid">
+            {quickContacts.map((c, i) => (
+              <div className="info-card" key={i}>
+                <div className="info-card-icon">{c.icon}</div>
+                <div className="info-card-body">
+                  <h3>{c.title}</h3>
+                  <p>{c.content}</p>
+                  {c.content2 && <p>{c.content2}</p>}
+                  <a
+                    href={c.link}
+                    className="card-link"
+                    target="_blank"
+                    rel="noreferrer"
+                  >
+                    {c.linkLabel} →
+                  </a>
+                </div>
+              </div>
+            ))}
+          </div>
+        </section>
+
+        {/* ============ MAP + FORM ============ */}
         <div className="contact-body">
 
-          {/* LEFT */}
           <div className="contact-left">
-
             <h2>We'd Love to Hear From You</h2>
-
             <p>
               Whether you're looking to hire top talent, need help with payroll,
               or want to learn more about our BGV services — our team is here to help.
             </p>
 
-            {/* Google Map */}
             <div className="map-wrap">
               <iframe
                 title="BrainHunt Ventures Location"
@@ -606,7 +722,6 @@ export default function ContactPage() {
               />
             </div>
 
-            {/* Socials */}
             <p
               style={{
                 fontSize: '0.8rem',
@@ -633,17 +748,11 @@ export default function ContactPage() {
                 </Link>
               ))}
             </div>
-
           </div>
 
-          {/* FORM */}
           <div className="contact-form-wrap">
-
             <h3>Send Us a Message</h3>
-
-            <p className="form-sub">
-              We typically respond within one business day.
-            </p>
+            <p className="form-sub">We typically respond within one business day.</p>
 
             {status === 'success' && (
               <div className="toast success">
@@ -660,16 +769,10 @@ export default function ContactPage() {
             )}
 
             <form onSubmit={handleSubmit}>
-
-              {/* Name */}
               <div className="field-group">
                 <label className="field-label">Full Name</label>
-
                 <div className="field-wrap">
-                  <span className="field-icon">
-                    <FiUser size={15} />
-                  </span>
-
+                  <span className="field-icon"><FiUser size={15} /></span>
                   <input
                     type="text"
                     name="name"
@@ -681,15 +784,10 @@ export default function ContactPage() {
                 </div>
               </div>
 
-              {/* Email */}
               <div className="field-group">
                 <label className="field-label">Email Address</label>
-
                 <div className="field-wrap">
-                  <span className="field-icon">
-                    <FiMail size={15} />
-                  </span>
-
+                  <span className="field-icon"><FiMail size={15} /></span>
                   <input
                     type="email"
                     name="email"
@@ -701,15 +799,10 @@ export default function ContactPage() {
                 </div>
               </div>
 
-              {/* Phone */}
               <div className="field-group">
                 <label className="field-label">Phone Number</label>
-
                 <div className="field-wrap">
-                  <span className="field-icon">
-                    <FiPhone size={15} />
-                  </span>
-
+                  <span className="field-icon"><FiPhone size={15} /></span>
                   <input
                     type="tel"
                     name="phone"
@@ -721,23 +814,13 @@ export default function ContactPage() {
                 </div>
               </div>
 
-              {/* File */}
               <div className="field-group">
-                <label className="field-label">
-                  Attach Resume / File (optional)
-                </label>
-
+                <label className="field-label">Attach Resume / File (optional)</label>
                 <label className="file-wrap" htmlFor="file-input">
                   <FiPaperclip size={16} color="#94a3b8" />
-
                   <span className="file-label">
-                    {file ? (
-                      <span className="file-name">{file.name}</span>
-                    ) : (
-                      'Click to upload a file'
-                    )}
+                    {file ? <span className="file-name">{file.name}</span> : 'Click to upload a file'}
                   </span>
-
                   <input
                     id="file-input"
                     type="file"
@@ -748,36 +831,23 @@ export default function ContactPage() {
                 </label>
               </div>
 
-              {/* Message */}
               <div className="field-group">
                 <label className="field-label">Message</label>
-
                 <div className="field-wrap">
-                  <span
-                    className="field-icon"
-                    style={{
-                      alignSelf: 'flex-start',
-                      paddingTop: '13px',
-                    }}
-                  >
+                  <span className="field-icon" style={{ alignSelf: 'flex-start', paddingTop: '13px' }}>
                     <FiMessageSquare size={15} />
                   </span>
-
                   <textarea
                     name="message"
                     placeholder="Tell us how we can help you..."
-                    required
+                  
                     value={form.message}
                     onChange={handleChange}
                   />
                 </div>
               </div>
 
-              <button
-                type="submit"
-                className="submit-btn"
-                disabled={status === 'sending'}
-              >
+              <button type="submit" className="submit-btn" disabled={status === 'sending'}>
                 {status === 'sending' ? (
                   <>
                     <span
@@ -791,7 +861,6 @@ export default function ContactPage() {
                         display: 'inline-block',
                       }}
                     />
-
                     Sending...
                   </>
                 ) : (
@@ -801,21 +870,10 @@ export default function ContactPage() {
                   </>
                 )}
               </button>
-
             </form>
-
           </div>
-
         </div>
       </div>
-
-      <style>{`
-        @keyframes spin {
-          to {
-            transform: rotate(360deg);
-          }
-        }
-      `}</style>
     </>
   );
 }

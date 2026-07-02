@@ -89,7 +89,7 @@ const Footer = () => {
 
 
           <iframe
-                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3721.88430598131!2d79.03895177503398!3d21.117178180554387!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3bd4bf2ae4ff6ed7%3A0x12145dd4c2123eb3!2sEffiman%20Services%20Pvt%20Ltd!5e0!3m2!1sen!2sin!4v1778956874261!5m2!1sen!2sin"
+            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3721.88430598131!2d79.03895177503398!3d21.117178180554387!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3bd4bf2ae4ff6ed7%3A0x12145dd4c2123eb3!2sEffiman%20Services%20Pvt%20Ltd!5e0!3m2!1sen!2sin!4v1778956874261!5m2!1sen!2sin"
             width="100%"
             height="150"
             className="rounded-lg mb-4 shadow-md"
@@ -110,21 +110,21 @@ const Footer = () => {
       {/* Bottom Bar */}
       <div className="border-t border-white/10 py-4 text-center text-sm text-gray-400">
         © {new Date().getFullYear()} BrainHunt. All rights reserved.
-       
-      </div>
-       {/* FOOTER CREDIT */}
-       <div className=" py-1 text-center text-[8px] text-gray-500 flex items-center justify-center gap-1">
-  <span>Designed & Developed by</span>
 
-  <a
-    href="https://www.linkedin.com/in/achal-turkar/"
-    target="_blank"
-    rel="noopener noreferrer"
-    className="text-orange-200 hover:text-orange-100 transition-colors duration-200"
-  >
-    Achal Turkar
-  </a>
-</div>
+      </div>
+      {/* FOOTER CREDIT */}
+      <div className=" py-1 text-center text-[8px] text-gray-500 flex items-center justify-center gap-1">
+        <span>Designed & Developed by</span>
+
+        <a
+          href="https://www.linkedin.com/in/achal-turkar/"
+          target="_blank"
+          rel="noopener noreferrer"
+          className="text-orange-200 hover:text-orange-100 transition-colors duration-200"
+        >
+          Achal Turkar
+        </a>
+      </div>
 
     </footer>
   );

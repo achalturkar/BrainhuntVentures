@@ -11,6 +11,7 @@ import Journey from "@/components/Journey/Journey";
 import About from "@/components/About/about";
 import Client from "@/components/Client/Client";
 import Head from "next/head";
+import BGVServiceSection from "@/components/BgvServiceSection/BGVServiceSection";
 
 export default function Home() {
 
@@ -43,6 +44,7 @@ export default function Home() {
           points={["Seamless onboarding and workforce integration", "Consistent service delivery with zero downtime", "Data-driven insights for smarter HR decisions", "Focused support for employer branding and retention"]}
         />
         <Service />
+        <BGVServiceSection/>
         <IndustryServe />
         <Journey />
         <Client />
