@@ -112,19 +112,7 @@ const Footer = () => {
         © {new Date().getFullYear()} BrainHunt. All rights reserved.
 
       </div>
-      {/* FOOTER CREDIT */}
-      <div className=" py-1 text-center text-[8px] text-gray-500 flex items-center justify-center gap-1">
-        <span>Designed & Developed by</span>
-
-        <a
-          href="https://www.linkedin.com/in/achal-turkar/"
-          target="_blank"
-          rel="noopener noreferrer"
-          className="text-orange-200 hover:text-orange-100 transition-colors duration-200"
-        >
-          Achal Turkar
-        </a>
-      </div>
+      
 
     </footer>
   );
